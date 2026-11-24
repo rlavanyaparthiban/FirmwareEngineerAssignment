@@ -1,0 +1,323 @@
+WARNING: You are using a local hash equivalence server but have configured an sstate mirror. This will likely mean no sstate will match from the mirror. You may wish to disable the hash equivalence use (BB_HASHSERVE), or use a hash equivalence server alongside the sstate mirror.
+NOTE: Resolving any missing task queue dependencies
+
+Build Configuration:
+BB_VERSION           = "2.8.1"
+BUILD_SYS            = "x86_64-linux"
+NATIVELSBSTRING      = "universal"
+TARGET_SYS           = "aarch64-poky-linux"
+MACHINE              = "qemuarm64"
+DISTRO               = "isp"
+DISTRO_VERSION       = "1.0"
+TUNE_FEATURES        = "aarch64 crc cortexa57"
+TARGET_FPU           = ""
+meta-isp-assignment  = "feature/camera-isp-channel:2c6d19801e187f3b0d7f53344e0660ae61862e26"
+meta-multimedia      
+meta-oe              
+meta-python          = "scarthgap:96c2c78e13ff1b954715ff3c6d26bddd50a02509"
+meta                 
+meta-poky            = "scarthgap:4fb7016a07507683359ebd620f1951fd5ea44bfa"
+
+Sstate summary: Wanted 248 Local 172 Mirrors 73 Missed 3 Current 1371 (98% match, 99% complete)
+NOTE: Executing Tasks
+NOTE: Running setscene task 1447 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/dropbear/dropbear_2022.83.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1448 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/gcc/gcc-runtime_13.5.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1449 of 1619 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-isp/isp-channel/isp-channel_1.0.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1450 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/gawk/gawk_5.3.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe dropbear-2022.83-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gawk-5.3.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe isp-channel-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe dropbear-2022.83-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1451 of 1619 (/home/user/yocto/build/../poky/meta/recipes-connectivity/openssl/openssl_3.5.8.bb:do_package_write_ipk_setscene)
+NOTE: recipe gawk-5.3.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1452 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/perl/perl_5.38.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe isp-channel-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1453 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libevent/libevent_2.1.13.bb:do_package_write_ipk_setscene)
+NOTE: recipe openssl-3.5.8-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe perl-5.38.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gcc-runtime-13.5.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1454 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-ugly_1.22.12.bb:do_package_write_ipk_setscene)
+NOTE: recipe libevent-2.1.13-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gstreamer1.0-plugins-ugly-1.22.12-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe openssl-3.5.8-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1455 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/coreutils/coreutils_9.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe libevent-2.1.13-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1456 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/libxml/libxml2_2.12.10.bb:do_package_write_ipk_setscene)
+NOTE: recipe gstreamer1.0-plugins-ugly-1.22.12-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1457 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/glibc/glibc_2.39.bb:do_package_write_ipk_setscene)
+NOTE: recipe coreutils-9.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libxml2-2.12.10-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe glibc-2.39+git-r1: task do_package_write_ipk_setscene: Started
+NOTE: recipe coreutils-9.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1458 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/ca-certificates/ca-certificates_20260816.bb:do_package_write_ipk_setscene)
+NOTE: recipe libxml2-2.12.10-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1460 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libffi/libffi_3.4.6.bb:do_package_write_ipk_setscene)
+NOTE: recipe ca-certificates-20260816-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libffi-3.4.6-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe ca-certificates-20260816-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1461 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/readline/readline_8.2.bb:do_package_write_ipk_setscene)
+NOTE: recipe glibc-2.39+git-r1: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1463 of 1619 (/home/user/yocto/build/../poky/meta/recipes-kernel/kmod/kmod_31.bb:do_package_write_ipk_setscene)
+NOTE: recipe libffi-3.4.6-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1464 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/gnutls/libtasn1_4.20.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe perl-5.38.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1465 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/libidn/libidn2_2.3.7.bb:do_package_write_ipk_setscene)
+NOTE: recipe readline-8.2-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe kmod-31-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libtasn1-4.20.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe kmod-31-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1466 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/orc/orc_0.4.40.bb:do_package_write_ipk_setscene)
+NOTE: recipe readline-8.2-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1468 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/shadow/shadow_4.14.2.bb:do_package_write_ipk_setscene)
+NOTE: recipe libidn2-2.3.7-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libtasn1-4.20.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1469 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/update-rc.d/update-rc.d_0.8.bb:do_package_write_ipk_setscene)
+NOTE: recipe orc-0.4.40-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe shadow-4.14.2-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe update-rc.d-0.8+git-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libidn2-2.3.7-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1470 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/zlib/zlib_1.3.1.bb:do_package_write_ipk_setscene)
+NOTE: recipe orc-0.4.40-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe update-rc.d-0.8+git-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1471 of 1619 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-multimedia/libyuv/libyuv_git.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1472 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/bash/bash_5.2.21.bb:do_package_write_ipk_setscene)
+NOTE: recipe shadow-4.14.2-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1473 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libunistring/libunistring_1.2.bb:do_package_write_ipk_setscene)
+NOTE: recipe zlib-1.3.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libyuv-1770+git-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe bash-5.2.21-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libunistring-1.2-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe zlib-1.3.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1474 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/busybox/busybox_1.36.1.bb:do_package_write_ipk_setscene)
+NOTE: recipe libyuv-1770+git-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1475 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/util-linux/util-linux_2.39.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe bash-5.2.21-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1477 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libcap/libcap_2.69.bb:do_package_write_ipk_setscene)
+NOTE: recipe libunistring-1.2-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1479 of 1619 (/home/user/yocto/build/../poky/meta/recipes-connectivity/openssh/openssh_9.6p1.bb:do_package_write_ipk_setscene)
+NOTE: recipe busybox-1.36.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe util-linux-2.39.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe busybox-1.36.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe libcap-2.69-r0: task do_package_write_ipk_setscene: Started
+NOTE: Running setscene task 1481 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/qemu/qemuwrapper-cross_1.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe openssh-9.6p1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libcap-2.69-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1482 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/packagegroups/packagegroup-core-boot.bb:do_package_write_ipk_setscene)
+NOTE: recipe qemuwrapper-cross-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe openssh-9.6p1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1484 of 1619 (/home/user/yocto/build/../poky/meta/recipes-kernel/linux-libc-headers/linux-libc-headers_6.6.bb:do_package_write_ipk_setscene)
+NOTE: recipe packagegroup-core-boot-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe qemuwrapper-cross-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1486 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/base-files/base-files_3.0.14.bb:do_package_write_ipk_setscene)
+NOTE: recipe util-linux-2.39.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1487 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/gnutls/gnutls_3.8.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe linux-libc-headers-6.6-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe packagegroup-core-boot-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1488 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/python/python3-packaging_23.2.bb:do_package_write_ipk_setscene)
+NOTE: recipe base-files-3.0.14-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gnutls-3.8.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe linux-libc-headers-6.6-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1489 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/libxcrypt/libxcrypt_4.4.36.bb:do_package_write_ipk_setscene)
+NOTE: recipe python3-packaging-23.2-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe base-files-3.0.14-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1490 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/gdbm/gdbm_1.23.bb:do_package_write_ipk_setscene)
+NOTE: recipe libxcrypt-4.4.36-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gnutls-3.8.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1491 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/gstreamer/gstreamer1.0_1.22.12.bb:do_package_write_ipk_setscene)
+NOTE: recipe python3-packaging-23.2-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1492 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-good_1.22.12.bb:do_package_write_ipk_setscene)
+NOTE: recipe gdbm-1.23-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libxcrypt-4.4.36-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1493 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/libtirpc/libtirpc_1.3.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe gstreamer1.0-1.22.12-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gstreamer1.0-plugins-good-1.22.12-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gdbm-1.23-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1496 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/run-postinsts/run-postinsts_1.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe libtirpc-1.3.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe run-postinsts-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gstreamer1.0-1.22.12-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1497 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/shared-mime-info/shared-mime-info_2.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe libtirpc-1.3.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1498 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/e2fsprogs/e2fsprogs_1.47.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe run-postinsts-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1499 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/iso-codes/iso-codes_4.16.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe gstreamer1.0-plugins-good-1.22.12-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1500 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/xz/xz_5.4.7.bb:do_package_write_ipk_setscene)
+NOTE: recipe shared-mime-info-2.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe iso-codes-4.16.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe xz-5.4.7-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe e2fsprogs-1.47.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe shared-mime-info-2.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1501 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/opkg-utils/opkg-utils_0.6.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe xz-5.4.7-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1503 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/systemd/systemd_255.22.bb:do_package_write_ipk_setscene)
+NOTE: recipe opkg-utils-0.6.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe e2fsprogs-1.47.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1504 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/zstd/zstd_1.5.5.bb:do_package_write_ipk_setscene)
+NOTE: recipe iso-codes-4.16.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1505 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/volatile-binds/volatile-binds.bb:do_package_write_ipk_setscene)
+NOTE: recipe opkg-utils-0.6.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1506 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/base-passwd/base-passwd_3.6.8.bb:do_package_write_ipk_setscene)
+NOTE: recipe volatile-binds-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe zstd-1.5.5-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-1_255.22-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe volatile-binds-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1508 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/bash-completion/bash-completion_2.12.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe base-passwd-3.6.8-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe zstd-1.5.5-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1509 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/shadow/shadow-securetty_4.6.bb:do_package_write_ipk_setscene)
+NOTE: recipe bash-completion-2.12.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe base-passwd-3.6.8-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1512 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/attr/attr_2.5.1.bb:do_package_write_ipk_setscene)
+NOTE: recipe shadow-securetty-4.6-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-1_255.22-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe bash-completion-2.12.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1513 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/python/python3_3.12.14.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1515 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/os-release/os-release.bb:do_package_write_ipk_setscene)
+NOTE: recipe attr-2.5.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe shadow-securetty-4.6-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe os-release-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: Running setscene task 1516 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/util-linux/util-linux-libuuid_2.39.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe attr-2.5.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1517 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/ncurses/ncurses_6.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe python3-3.12.14-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe os-release-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1518 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/dbus/dbus_1.14.10.bb:do_package_write_ipk_setscene)
+NOTE: recipe util-linux-libuuid-2.39.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe util-linux-libuuid-2.39.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe ncurses-6.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: Running setscene task 1519 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/attr/acl_2.3.2.bb:do_package_write_ipk_setscene)
+NOTE: recipe dbus-1.14.10-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe acl-2.3.2-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe ncurses-6.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1521 of 1619 (/home/user/yocto/build/../poky/meta/recipes-graphics/jpeg/libjpeg-turbo_3.0.1.bb:do_package_write_ipk_setscene)
+NOTE: recipe dbus-1.14.10-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1524 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/sqlite/sqlite3_3.45.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe python3-3.12.14-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1528 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/netbase/netbase_6.4.bb:do_package_write_ipk_setscene)
+NOTE: recipe acl-2.3.2-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1530 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/pam/libpam_1.5.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe libjpeg-turbo-1_3.0.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe netbase-1_6.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe sqlite3-3_3.45.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe netbase-1_6.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1533 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/systemd/systemd-compat-units.bb:do_package_write_ipk_setscene)
+NOTE: recipe libpam-1.5.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libjpeg-turbo-1_3.0.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1535 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/systemd/systemd-conf_1.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe sqlite3-3_3.45.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1536 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/gstreamer/gstreamer1.0-plugins-base_1.22.12.bb:do_package_write_ipk_setscene)
+NOTE: recipe systemd-compat-units-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-conf-1_1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-compat-units-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1537 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/tar/tar_1.35.bb:do_package_write_ipk_setscene)
+NOTE: recipe libpam-1.5.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1538 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/expat/expat_2.8.3.bb:do_package_write_ipk_setscene)
+NOTE: recipe systemd-conf-1_1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1539 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/libnsl/libnsl2_git.bb:do_package_write_ipk_setscene)
+NOTE: recipe gstreamer1.0-plugins-base-1.22.12-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe tar-1.35-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe expat-2.8.3-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libnsl2-2.0.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gstreamer1.0-plugins-base-1.22.12-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1540 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libpcre/libpcre2_10.43.bb:do_package_write_ipk_setscene)
+NOTE: recipe expat-2.8.3-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1541 of 1619 (/home/user/yocto/build/../meta-openembedded/meta-multimedia/recipes-multimedia/libcamera/libcamera_0.4.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe libnsl2-2.0.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1542 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/gmp/gmp_6.3.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe tar-1.35-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1543 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/findutils/findutils_4.9.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe libpcre2-10.43-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libcamera-1_0.4.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe gmp-6.3.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libpcre2-10.43-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe findutils-4.9.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: Running setscene task 1544 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libyaml/libyaml_0.2.5.bb:do_package_write_ipk_setscene)
+NOTE: recipe gmp-6.3.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1545 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/packagegroups/packagegroup-core-ssh-dropbear.bb:do_package_write_ipk_setscene)
+NOTE: recipe libcamera-1_0.4.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1546 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/glib-2.0/glib-2.0_2.78.6.bb:do_package_write_ipk_setscene)
+NOTE: recipe packagegroup-core-ssh-dropbear-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libyaml-0.2.5-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe findutils-4.9.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1547 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libseccomp/libseccomp_2.5.5.bb:do_package_write_ipk_setscene)
+NOTE: recipe packagegroup-core-ssh-dropbear-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1548 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/libpng/libpng_1.6.42.bb:do_package_write_ipk_setscene)
+NOTE: recipe glib-2.0-1_2.78.6-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libyaml-0.2.5-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1552 of 1619 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-isp/virtual-camera/virtual-camera-config_1.0.bb:do_package_write_ipk_setscene)
+NOTE: recipe libseccomp-2.5.5-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libpng-1.6.42-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe virtual-camera-config-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libseccomp-2.5.5-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe glib-2.0-1_2.78.6-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1553 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/nettle/nettle_3.9.1.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1555 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/systemd/systemd-serialgetty.bb:do_package_write_ipk_setscene)
+NOTE: recipe libpng-1.6.42-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1556 of 1619 (/home/user/yocto/build/../poky/meta/recipes-extended/bzip2/bzip2_1.0.8.bb:do_package_write_ipk_setscene)
+NOTE: recipe virtual-camera-config-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1557 of 1619 (/home/user/yocto/build/../poky/meta/recipes-support/libcap-ng/libcap-ng_0.8.5.bb:do_package_write_ipk_setscene)
+NOTE: recipe nettle-3.9.1-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe bzip2-1.0.8-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-serialgetty-1.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libcap-ng-0.8.5-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe systemd-serialgetty-1.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1558 of 1619 (/home/user/yocto/build/../poky/meta/recipes-multimedia/x264/x264_git.bb:do_package_write_ipk_setscene)
+NOTE: recipe bzip2-1.0.8-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe nettle-3.9.1-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1561 of 1619 (/home/user/yocto/build/../poky/meta/recipes-core/kbd/kbd_2.6.4.bb:do_package_write_ipk_setscene)
+NOTE: Running setscene task 1562 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/gcc/libgcc_13.5.bb:do_package_write_ipk_setscene)
+NOTE: recipe libcap-ng-0.8.5-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Running setscene task 1563 of 1619 (/home/user/yocto/build/../poky/meta/recipes-devtools/libedit/libedit_20230828-3.1.bb:do_package_write_ipk_setscene)
+NOTE: recipe x264-r3039+git-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe kbd-2.6.4-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe libedit-20230828-3.1-r1: task do_package_write_ipk_setscene: Started
+NOTE: recipe libgcc-13.5.0-r0: task do_package_write_ipk_setscene: Started
+NOTE: recipe x264-r3039+git-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe libedit-20230828-3.1-r1: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe kbd-2.6.4-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: recipe libgcc-13.5.0-r0: task do_package_write_ipk_setscene: Succeeded
+NOTE: Setscene tasks completed
+NOTE: Running noexec task 3405 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_fetch)
+NOTE: Running task 3406 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_prepare_recipe_sysroot)
+NOTE: Running task 3410 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_create_runtime_spdx)
+NOTE: recipe isp-image-1.0-r0: task do_prepare_recipe_sysroot: Started
+NOTE: recipe isp-image-1.0-r0: task do_create_runtime_spdx: Started
+NOTE: recipe isp-image-1.0-r0: task do_create_runtime_spdx: Succeeded
+NOTE: Task /home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_create_runtime_spdx unihash changed to 1a1ed70537ac2630ba1cb774ea3a1c2a0f46fb6bce6c3a8e88885c3d97d83940
+NOTE: recipe isp-image-1.0-r0: task do_prepare_recipe_sysroot: Succeeded
+NOTE: Setscene tasks completed
+NOTE: Running task 3538 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_rootfs)
+NOTE: recipe isp-image-1.0-r0: task do_rootfs: Started
+NOTE: recipe isp-image-1.0-r0: task do_rootfs: Succeeded
+NOTE: Running task 3539 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_write_qemuboot_conf)
+NOTE: Running task 3540 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_flush_pseudodb)
+NOTE: recipe isp-image-1.0-r0: task do_write_qemuboot_conf: Started
+NOTE: recipe isp-image-1.0-r0: task do_write_qemuboot_conf: Succeeded
+NOTE: recipe isp-image-1.0-r0: task do_flush_pseudodb: Started
+NOTE: recipe isp-image-1.0-r0: task do_flush_pseudodb: Succeeded
+NOTE: Running task 3541 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_image_qa)
+NOTE: recipe isp-image-1.0-r0: task do_image_qa: Started
+NOTE: recipe isp-image-1.0-r0: task do_image_qa: Succeeded
+NOTE: Running task 3542 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_image)
+NOTE: recipe isp-image-1.0-r0: task do_image: Started
+NOTE: recipe isp-image-1.0-r0: task do_image: Succeeded
+NOTE: Running task 3543 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_image_tar)
+NOTE: Running task 3544 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_image_ext4)
+NOTE: recipe isp-image-1.0-r0: task do_image_tar: Started
+NOTE: recipe isp-image-1.0-r0: task do_image_ext4: Started
+NOTE: recipe isp-image-1.0-r0: task do_image_ext4: Succeeded
+NOTE: recipe isp-image-1.0-r0: task do_image_tar: Succeeded
+NOTE: Running task 3545 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_image_complete)
+NOTE: recipe isp-image-1.0-r0: task do_image_complete: Started
+NOTE: recipe isp-image-1.0-r0: task do_image_complete: Succeeded
+NOTE: Running task 3546 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_populate_lic_deploy)
+NOTE: recipe isp-image-1.0-r0: task do_populate_lic_deploy: Started
+NOTE: recipe isp-image-1.0-r0: task do_populate_lic_deploy: Succeeded
+NOTE: Running task 3547 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_rm_work)
+NOTE: recipe isp-image-1.0-r0: task do_rm_work: Started
+NOTE: recipe isp-image-1.0-r0: task do_rm_work: Succeeded
+NOTE: Running noexec task 3548 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_rm_work_all)
+NOTE: Running noexec task 3549 of 3549 (/home/user/yocto/build/../../firmwareengineerassignment/meta-isp-assignment/recipes-core/images/isp-image.bb:do_build)
+NOTE: Tasks Summary: Attempted 3549 tasks of which 3534 didn't need to be rerun and all succeeded.
