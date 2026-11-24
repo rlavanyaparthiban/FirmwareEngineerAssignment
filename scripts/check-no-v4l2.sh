@@ -7,7 +7,7 @@
 # what this script scans.
 set -eu
 
-ROOT="$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)"
+ROOT="$(cd -- "$(dirname -- "$0")/.." && pwd)"
 APP_DIR="${1:-$ROOT/meta-isp-assignment/recipes-isp/isp-channel/files}"
 
 if [ ! -d "$APP_DIR" ]; then
