@@ -1,0 +1,30 @@
+[Unit]
+Description=Camera ISP channel (libcamera, software ISP, H.264)
+# The udev rule that opens the DMABUF allocator to the "video" group must
+# have been applied before libcamera allocates its frame buffers.
+Wants=systemd-udev-settle.service
+After=systemd-udev-settle.service
+
+[Service]
+Type=exec
+User=ispchannel
+Group=ispchannel
+SupplementaryGroups=video
+Environment=HOME=/var/lib/isp-channel
+Environment=LIBCAMERA_LOG_LEVELS=*:WARN
+ExecStart=/usr/bin/isp-channel --config /etc/isp-channel/isp-channel.conf
+# Recordings and snapshots: /var/lib/isp-channel. Control socket: /run/isp-channel.
+StateDirectory=isp-channel
+RuntimeDirectory=isp-channel
+Restart=on-failure
+RestartSec=2
+# On SIGTERM the encoder finalises the open MP4 segment before exiting.
+TimeoutStopSec=45
+
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

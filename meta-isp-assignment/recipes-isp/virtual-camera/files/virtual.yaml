@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: MIT
+# Camera definition for libcamera's virtual pipeline handler.
+#
+# One 1080p30 camera that plays the test-chart frames installed next to this
+# file. libcamera loads every image of the directory at start-up, scales it to
+# the stream size and shows each one for four frames.
+%YAML 1.1
+---
+"VirtualSensor0":
+  supported_formats:
+  - width: 1920
+    height: 1080
+    frame_rates:
+    - 30
+  frames:
+    path: "/usr/share/isp-channel/frames/"
+  location: "CameraLocationExternal"
+  model: "ISP channel virtual sensor"

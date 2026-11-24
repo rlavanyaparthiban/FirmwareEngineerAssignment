@@ -1,0 +1,6 @@
+# libcamera's virtual pipeline handler allocates frame buffers as DMABUFs from
+# the system DMA heap, or from udmabuf when no heap is available. Both nodes
+# are root-only by default; open them to the "video" group so that the
+# isp-channel service can run unprivileged.
+SUBSYSTEM=="dma_heap", GROUP="video", MODE="0660"
+KERNEL=="udmabuf", GROUP="video", MODE="0660"
