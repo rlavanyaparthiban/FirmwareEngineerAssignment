@@ -1,0 +1,27 @@
+name: probe
+on:
+  push:
+    branches: ["ci/probe-runner"]
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Report runner resources
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "nproc: $(nproc)"
+            free -g | head -2
+            df -h / /mnt 2>/dev/null
+            echo "kvm: $(ls -la /dev/kvm 2>&1)"
+            echo "udmabuf: $(ls -la /dev/udmabuf 2>&1)"
+            echo "docker: $(docker --version)"
+            echo "userns sysctl: $(sysctl kernel.apparmor_restrict_unprivileged_userns 2>&1)"
+            echo "arch: $(uname -a)"
+            echo "runner: $ImageOS $ImageVersion"
+          } > /tmp/probe.txt 2>&1
+          cat /tmp/probe.txt
+          gh api "repos/${GITHUB_REPOSITORY}/commits/${GITHUB_SHA}/comments" -f body="$(printf '```\n%s\n```' "$(cat /tmp/probe.txt)")"
