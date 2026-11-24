@@ -1,0 +1,14 @@
+# kas / bitbake working directories
+/build/
+/poky/
+/meta-openembedded/
+/meta-raspberrypi/
+/.kas_shell_history
+# native developer builds of the application
+/_build*/
+*.swp
+__pycache__/
+# local QEMU run artefacts
+/artifacts/
+*.ext4
+*.qcow2
