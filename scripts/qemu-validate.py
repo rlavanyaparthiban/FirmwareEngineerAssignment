@@ -33,6 +33,7 @@ import pexpect
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOTFS = "isp-image-qemuarm64.rootfs.ext4"
 DONE = re.compile(r"__DONE_(\d+)__")
+RING_FILES = 10  # max-files of the splitmuxsink in the shipped pipeline
 
 
 class Guest:
@@ -274,9 +275,15 @@ def main():
     check(len(snapshots) == 2, "two PNG snapshots (control socket and SIGUSR1)")
     check(psnr != "n/a" and float(psnr) >= 25.0, f"ISP round-trip PSNR {psnr} dB >= 25 dB")
     check(len(recordings) >= 1, "MP4 recording present")
-    if encoded is not None:
+    check(len(recordings) <= RING_FILES, f"recording ring holds at most {RING_FILES} segments")
+    if encoded is not None and len(recordings) < RING_FILES:
+        # Only comparable while the ring has not started deleting old segments.
         check(encoded == int(summary["frames"]),
               f"every captured frame was encoded ({encoded} of {summary['frames']})")
+    elif encoded is not None:
+        check(0 < encoded <= int(summary["frames"]),
+              f"ring is full: the newest {len(recordings)} segments hold {encoded} of "
+              f"{summary['frames']} frames")
     check("control Brightness" in journal and "tungsten" in journal, "run-time control changes applied")
 
     write_measurements(os.path.join(args.out, "measurements.md"), args, stats, summary,

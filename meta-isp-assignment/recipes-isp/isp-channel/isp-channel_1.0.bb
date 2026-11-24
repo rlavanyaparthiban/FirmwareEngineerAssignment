@@ -51,6 +51,7 @@ RDEPENDS:${PN} = " \
     gstreamer1.0-plugins-good-isomp4 \
     gstreamer1.0-plugins-good-multifile \
     gstreamer1.0-plugins-good-jpeg \
+    gstreamer1.0-plugins-good-matroska \
     gstreamer1.0-plugins-good-rtp \
     gstreamer1.0-plugins-good-udp \
     gstreamer1.0-plugins-ugly-x264 \
