@@ -4,6 +4,7 @@
 | --- | --- |
 | `build/bitbake-qemuarm64-full.log` | BitBake console log of the complete `isp-image` build for `qemuarm64` (3549 tasks, all succeeded) |
 | `build/bitbake-qemuarm64-final.log` | the last incremental build, which produced the image that was validated |
+| `build/bitbake-raspberrypi4-64-local.log` | BitBake console log of the Raspberry Pi 4 build on the development machine: 3643 of 3644 tasks succeeded; the one failure is the download of the Raspberry Pi boot firmware, which that machine's network blocks |
 | `qemu/boot.log` | serial console of the validation run, from kernel start to power-off |
 | `qemu/journal-boot.log` | `journalctl -b` from the guest |
 | `qemu/journal-isp-channel.log` | `journalctl -u isp-channel`: start-up, control routing, statistics every 10 s, snapshots, clean stop |
