@@ -424,6 +424,16 @@ application gets a Raspberry Pi configuration file.
 This target was **built only**. It has not been booted, as the assignment
 allows. See [REPORT.md](REPORT.md#9-what-changes-on-a-real-raspberry-pi).
 
+Build status: on the development machine 3643 of the 3644 build tasks for
+`raspberrypi4-64` succeeded: the `linux-raspberrypi` 6.6.63 kernel, libcamera
+0.4.0 with the `rpi/vc4` pipeline handler and its IPA module, `isp-channel` with
+its Raspberry Pi configuration, and the root filesystem. The one task that did
+not run there is the download of the Raspberry Pi boot firmware that the
+`.wic.bz2` needs, because that machine's network blocks it
+(`docs/evidence/build/bitbake-raspberrypi4-64-local.log`). The workflow job
+"kas build, Raspberry Pi 4" in `.github/workflows/yocto.yml` runs the complete
+build on a GitHub runner.
+
 ## 10. Known issues
 
 - **QEMU is slow.** The guest CPU is emulated, so the channel reaches about

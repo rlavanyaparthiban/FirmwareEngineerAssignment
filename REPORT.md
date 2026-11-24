@@ -186,10 +186,10 @@ be compared with the input:
   picture, for all four Bayer orders. Removing white balance, the colour
   matrix or the black-level correction each drops the PSNR by several dB,
   which shows every stage does real work.
-- On the test chart: colour bars and grey steps come back within 1 to 3 code
-  values out of 255. Whole-frame PSNR is about 29 dB; the loss is concentrated
-  on edges and on the zone plate, which is what bilinear demosaic is known to
-  do. Every snapshot logs this figure.
+- On the test chart: the grey steps come back within 3 code values out of 255
+  and the saturated colour bars within 6. Whole-frame PSNR is about 29 dB; the
+  loss is concentrated on edges and on the zone plate, which is what bilinear
+  demosaic is known to do. Every snapshot logs this figure.
 - Gray-world converges to gains of 1.91 and 1.61 for a simulated cast of 1.90
   and 1.60.
 
