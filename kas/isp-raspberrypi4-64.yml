@@ -1,0 +1,15 @@
+# Bonus: the same layer builds a flashable Raspberry Pi 4 image (.wic.bz2).
+# Build only; it has not been booted on hardware.
+#   kas build kas/isp-raspberrypi4-64.yml
+header:
+  version: 14
+  includes:
+    - kas/isp-base.yml
+
+machine: raspberrypi4-64
+
+repos:
+  meta-raspberrypi:
+    url: https://github.com/agherzan/meta-raspberrypi.git
+    commit: 018d44467c4f09eb63f8ea5e86e85d755250cf89
+    branch: scarthgap
