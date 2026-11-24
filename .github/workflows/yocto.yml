@@ -2,8 +2,9 @@ name: Yocto image
 
 # Builds the image with kas, boots it in QEMU and runs the validation script.
 # A cold build takes several hours on a two-core hosted runner, so this only
-# runs on demand (Actions tab -> "Yocto image" -> Run workflow) or for a
-# release tag. The sstate cache is kept between runs.
+# runs on demand: from the Actions tab ("Yocto image" -> Run workflow), for a
+# release tag, or by pushing the commit to build to the branch "ci/yocto".
+# The sstate cache is kept between runs.
 
 on:
   workflow_dispatch:
@@ -13,6 +14,7 @@ on:
         default: "600"
   push:
     tags: ["v*"]
+    branches: ["ci/yocto"]
 
 permissions:
   contents: read
