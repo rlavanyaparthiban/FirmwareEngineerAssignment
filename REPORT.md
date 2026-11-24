@@ -346,6 +346,18 @@ application against libcamera 0.4.0 (with the layer's patches) using the
 runner's real `/dev/udmabuf`. The end-to-end job checks frame counts, both
 snapshot triggers, a run-time control change and the round-trip PSNR.
 
+The on-demand "Yocto image" workflow has also been run once per target on
+clean GitHub-hosted runners (2 CPUs, about 5.5 hours each), and both passed:
+
+- `qemuarm64`: `kas build` from scratch, then the image was booted in QEMU and
+  passed the same `scripts/qemu-validate.py` run with a 10-minute soak
+  ([run](https://github.com/rlavanyaparthiban/FirmwareEngineerAssignment/actions/runs/45387838210)).
+- `raspberrypi4-64`: `kas build` from scratch produced the flashable
+  `.wic.bz2` ([run](https://github.com/rlavanyaparthiban/FirmwareEngineerAssignment/actions/runs/45389866037)).
+
+These runs used no cache and none of the development machine's settings, so
+they confirm that `kas build` needs no manual steps.
+
 ## 8. QEMU timings do not represent a real board
 
 QEMU emulates every ARM instruction in software (TCG); there is no KVM for an

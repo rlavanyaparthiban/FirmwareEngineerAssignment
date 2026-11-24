@@ -115,6 +115,15 @@ The image is too large for git. Two ways to get it without a local build:
   from the Actions tab, or push the commit to build to the branch `ci/yocto`.
 - Build it once locally as shown above.
 
+Both workflow jobs have been run on clean GitHub runners and passed:
+
+| Target | Run | Artifacts |
+| --- | --- | --- |
+| `qemuarm64`: kas build, boot in QEMU, 10-minute validation | [run 45387838210](https://github.com/rlavanyaparthiban/FirmwareEngineerAssignment/actions/runs/45387838210) | `isp-image-qemuarm64`, `qemu-evidence` |
+| `raspberrypi4-64`: kas build of the flashable image | [run 45389866037](https://github.com/rlavanyaparthiban/FirmwareEngineerAssignment/actions/runs/45389866037) | `isp-image-raspberrypi4-64` |
+
+GitHub keeps artifacts for 90 days and asks for a login to download them.
+
 SHA-256 of the images that produced the evidence committed in
 `docs/evidence/qemu/` (built from this layer at the pinned revisions):
 
@@ -424,15 +433,17 @@ application gets a Raspberry Pi configuration file.
 This target was **built only**. It has not been booted, as the assignment
 allows. See [REPORT.md](REPORT.md#9-what-changes-on-a-real-raspberry-pi).
 
-Build status: on the development machine 3643 of the 3644 build tasks for
-`raspberrypi4-64` succeeded: the `linux-raspberrypi` 6.6.63 kernel, libcamera
-0.4.0 with the `rpi/vc4` pipeline handler and its IPA module, `isp-channel` with
-its Raspberry Pi configuration, and the root filesystem. The one task that did
-not run there is the download of the Raspberry Pi boot firmware that the
-`.wic.bz2` needs, because that machine's network blocks it
-(`docs/evidence/build/bitbake-raspberrypi4-64-local.log`). The workflow job
-"kas build, Raspberry Pi 4" in `.github/workflows/yocto.yml` runs the complete
-build on a GitHub runner.
+Build status: **the flashable image builds.** The workflow job "kas build,
+Raspberry Pi 4" built the complete image, including
+`isp-image-raspberrypi4-64.rootfs.wic.bz2`, from scratch on a GitHub-hosted
+runner ([run](https://github.com/rlavanyaparthiban/FirmwareEngineerAssignment/actions/runs/45389866037); the image is its artifact `isp-image-raspberrypi4-64`).
+
+On the development machine 3643 of the 3644 build tasks succeeded: the
+`linux-raspberrypi` 6.6.63 kernel, libcamera 0.4.0 with the `rpi/vc4` pipeline
+handler and its IPA module, `isp-channel` with its Raspberry Pi configuration,
+and the root filesystem. The one task that did not run there is the download
+of the Raspberry Pi boot firmware, which that machine's network blocks
+(`docs/evidence/build/bitbake-raspberrypi4-64-local.log`).
 
 ## 10. Known issues
 
