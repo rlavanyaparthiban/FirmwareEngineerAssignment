@@ -1,0 +1,46 @@
+libcamera v0.4.0+dirty (2026-11-24T09:21:02UTC), 1 camera(s) found
+  camera 0: id 'VirtualSensor0', model 'ISP channel virtual sensor'
+using camera 'VirtualSensor0'
+camera exposes 2 control(s):
+  FaceDetectMode         [0..0]
+  FrameDurationLimits    [33333..33333]
+pipeline handler offers no RAW stream; RAW frames will come from the mosaic step
+viewfinder formats offered by the camera:
+  NV12 1920x1080 .. 1920x1080
+configuration adjusted by the pipeline handler
+viewfinder stream: 1920x1080-NV12, 4 buffers
+4 requests created, frame buffers backed by /memfd:frame-0 (deleted) (DMABUF, mapped read-only)
+ISP input: mosaic step, virtual sensor RGGB 10-bit, black level 64, illuminant gains R 1.90 B 1.60
+software ISP: black level, gray-world AWB, bilinear demosaic, CCM, gamma; 4 thread(s)
+software ISP controls: AeEnable, ExposureTime [100..33333 us], AnalogueGain [1..16], AwbEnable, AwbMode, ColourGains, Brightness [-1..1], Contrast [0..2]
+encoder pipeline: appsrc name=src ! x264enc speed-preset=ultrafast tune=zerolatency bitrate=4000 key-int-max=60 ! splitmuxsink location=/tmp/soak/isp-%05d.mp4 max-size-time=60000000000 max-files=10
+control socket: /tmp/soak/ctl.sock
+control AeEnable      = on         -> software ISP (not offered by the camera)
+control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+control AwbEnable     = on         -> software ISP (not offered by the camera)
+control AwbMode       = auto       -> software ISP (not offered by the camera)
+control Brightness    = 0.00       -> software ISP (not offered by the camera)
+control Contrast      = 1.00       -> software ISP (not offered by the camera)
+streaming 1920x1080, target 30.00 fps (paced by the application)
+stats frames=901 fps=29.77 avg_fps=29.77 sensor_ms=4.08 isp_ms=6.70 encode_ms=0.03 frame_ms=10.82 max_frame_ms=23.48 cpu_pct=124 rss_mib=168.7 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=1802 fps=30.00 avg_fps=29.88 sensor_ms=4.26 isp_ms=6.92 encode_ms=0.02 frame_ms=11.21 max_frame_ms=32.82 cpu_pct=129 rss_mib=168.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=2702 fps=30.00 avg_fps=29.92 sensor_ms=4.26 isp_ms=6.75 encode_ms=0.02 frame_ms=11.04 max_frame_ms=26.03 cpu_pct=127 rss_mib=168.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=3602 fps=30.00 avg_fps=29.94 sensor_ms=4.13 isp_ms=6.82 encode_ms=0.02 frame_ms=10.99 max_frame_ms=43.27 cpu_pct=129 rss_mib=169.0 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+stats frames=4502 fps=30.00 avg_fps=29.95 sensor_ms=4.15 isp_ms=6.79 encode_ms=0.02 frame_ms=10.97 max_frame_ms=28.96 cpu_pct=127 rss_mib=169.0 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+stats frames=5401 fps=29.97 avg_fps=29.96 sensor_ms=4.21 isp_ms=6.89 encode_ms=0.02 frame_ms=11.13 max_frame_ms=64.39 cpu_pct=127 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=6302 fps=30.00 avg_fps=29.96 sensor_ms=4.17 isp_ms=6.77 encode_ms=0.02 frame_ms=10.96 max_frame_ms=27.47 cpu_pct=127 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=7202 fps=30.00 avg_fps=29.97 sensor_ms=4.32 isp_ms=7.05 encode_ms=0.02 frame_ms=11.41 max_frame_ms=34.23 cpu_pct=131 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=8101 fps=29.96 avg_fps=29.97 sensor_ms=4.26 isp_ms=6.81 encode_ms=0.02 frame_ms=11.10 max_frame_ms=76.39 cpu_pct=127 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=9001 fps=30.00 avg_fps=29.97 sensor_ms=4.15 isp_ms=6.74 encode_ms=0.02 frame_ms=10.93 max_frame_ms=33.52 cpu_pct=128 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=9901 fps=30.00 avg_fps=29.97 sensor_ms=4.08 isp_ms=6.61 encode_ms=0.02 frame_ms=10.71 max_frame_ms=33.58 cpu_pct=126 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=10802 fps=30.00 avg_fps=29.97 sensor_ms=4.09 isp_ms=6.64 encode_ms=0.02 frame_ms=10.75 max_frame_ms=38.24 cpu_pct=126 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+stats frames=11702 fps=30.00 avg_fps=29.98 sensor_ms=4.03 isp_ms=6.53 encode_ms=0.02 frame_ms=10.59 max_frame_ms=28.45 cpu_pct=124 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+stats frames=12603 fps=30.00 avg_fps=29.98 sensor_ms=4.09 isp_ms=6.66 encode_ms=0.02 frame_ms=10.78 max_frame_ms=36.19 cpu_pct=125 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=13501 fps=29.92 avg_fps=29.97 sensor_ms=4.17 isp_ms=7.00 encode_ms=0.02 frame_ms=11.21 max_frame_ms=66.36 cpu_pct=129 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=14402 fps=30.00 avg_fps=29.98 sensor_ms=3.98 isp_ms=6.67 encode_ms=0.02 frame_ms=10.68 max_frame_ms=40.84 cpu_pct=126 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=15302 fps=30.00 avg_fps=29.98 sensor_ms=3.95 isp_ms=6.54 encode_ms=0.02 frame_ms=10.52 max_frame_ms=17.34 cpu_pct=124 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=16202 fps=29.99 avg_fps=29.98 sensor_ms=4.23 isp_ms=6.92 encode_ms=0.02 frame_ms=11.19 max_frame_ms=25.93 cpu_pct=129 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+stats frames=17103 fps=30.00 avg_fps=29.98 sensor_ms=4.18 isp_ms=6.92 encode_ms=0.02 frame_ms=11.13 max_frame_ms=40.87 cpu_pct=128 rss_mib=169.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+stopping
+summary frames=17996 seconds=600.3 avg_fps=29.98 worst_frame_ms=76.39 cpu_pct=127 rss_start_mib=10.3 rss_end_mib=138.0 rss_peak_mib=169.1 dropped=0 failed=0

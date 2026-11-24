@@ -1,0 +1,133 @@
+[   12.399865] qemuarm64 systemd[1]: Starting Camera ISP channel (libcamera, software ISP, H.264)...
+[   12.910930] qemuarm64 systemd[1]: Started Camera ISP channel (libcamera, software ISP, H.264).
+[   13.181431] qemuarm64 isp-channel[207]: [0:00:13.171820160] [207]  WARN IPAManager ipa_manager.cpp:148 No IPA found in '/usr/lib/libcamera'
+[   14.527499] qemuarm64 isp-channel[207]: isp-channel: libcamera v0.4.0+dirty (2026-11-24T10:47:42UTC), 1 camera(s) found
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   camera 0: id 'VirtualSensor0', model 'ISP channel virtual sensor'
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel: using camera 'VirtualSensor0'
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel: camera exposes 2 control(s):
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   FaceDetectMode         [0..0]
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   FrameDurationLimits    [33333..33333]
+[   14.535006] qemuarm64 isp-channel[207]: [0:00:14.534546848] [207] ERROR Virtual virtual.cpp:233 Requested stream role not supported: Raw
+[   14.535584] qemuarm64 isp-channel[207]: isp-channel: pipeline handler offers no RAW stream; RAW frames will come from the mosaic step
+[   14.537709] qemuarm64 isp-channel[207]: isp-channel: viewfinder formats offered by the camera:
+[   14.538507] qemuarm64 isp-channel[207]: isp-channel:   NV12 1920x1080 .. 1920x1080
+[   14.538507] qemuarm64 isp-channel[207]: isp-channel: configuration adjusted by the pipeline handler
+[   14.653879] qemuarm64 isp-channel[207]: isp-channel: viewfinder stream: 1920x1080-NV12, 4 buffers
+[   14.748751] qemuarm64 isp-channel[207]: isp-channel: 4 requests created, frame buffers backed by /dmabuf:frame-0 (DMABUF, mapped read-only)
+[   14.750199] qemuarm64 isp-channel[207]: isp-channel: ISP input: mosaic step, virtual sensor RGGB 10-bit, black level 64, illuminant gains R 1.90 B 1.60
+[   14.750199] qemuarm64 isp-channel[207]: isp-channel: software ISP: black level, gray-world AWB, bilinear demosaic, CCM, gamma; 4 thread(s)
+[   14.751131] qemuarm64 isp-channel[207]: isp-channel: software ISP controls: AeEnable, ExposureTime [100..33333 us], AnalogueGain [1..16], AwbEnable, AwbMode, ColourGains, Brightness [-1..1], Contrast [0..2]
+[   15.554430] qemuarm64 isp-channel[207]: isp-channel: encoder pipeline: appsrc name=src ! x264enc speed-preset=ultrafast tune=zerolatency bitrate=4000 key-int-max=60 ! splitmuxsink location=/var/lib/isp-channel/isp-%05d.mp4 max-size-time=60000000000 max-files=10
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control socket: /run/isp-channel/control.sock
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: streaming 1920x1080, target 30.00 fps (paced by the application)
+[   25.631424] qemuarm64 isp-channel[207]: isp-channel: stats frames=56 fps=4.49 avg_fps=4.49 sensor_ms=79.54 isp_ms=98.57 encode_ms=0.12 frame_ms=178.31 max_frame_ms=259.42 cpu_pct=291 rss_mib=146.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[   35.757851] qemuarm64 isp-channel[207]: isp-channel: stats frames=114 fps=5.73 avg_fps=5.05 sensor_ms=80.18 isp_ms=93.68 encode_ms=0.18 frame_ms=174.17 max_frame_ms=219.26 cpu_pct=357 rss_mib=146.6 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[   45.812800] qemuarm64 isp-channel[207]: isp-channel: stats frames=171 fps=5.67 avg_fps=5.24 sensor_ms=78.43 isp_ms=97.38 encode_ms=0.21 frame_ms=176.09 max_frame_ms=214.39 cpu_pct=354 rss_mib=143.8 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   55.865903] qemuarm64 isp-channel[207]: isp-channel: stats frames=230 fps=5.87 avg_fps=5.39 sensor_ms=76.35 isp_ms=92.92 encode_ms=0.23 frame_ms=169.57 max_frame_ms=218.93 cpu_pct=357 rss_mib=143.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   65.923636] qemuarm64 isp-channel[207]: isp-channel: stats frames=290 fps=5.97 avg_fps=5.50 sensor_ms=73.02 isp_ms=93.89 encode_ms=0.09 frame_ms=167.07 max_frame_ms=223.58 cpu_pct=354 rss_mib=143.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   75.928837] qemuarm64 isp-channel[207]: isp-channel: stats frames=350 fps=6.00 avg_fps=5.58 sensor_ms=77.91 isp_ms=87.67 encode_ms=0.38 frame_ms=166.04 max_frame_ms=204.96 cpu_pct=356 rss_mib=147.0 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   86.076460] qemuarm64 isp-channel[207]: isp-channel: stats frames=410 fps=5.91 avg_fps=5.62 sensor_ms=74.88 isp_ms=93.33 encode_ms=0.07 frame_ms=168.41 max_frame_ms=242.10 cpu_pct=354 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   96.139789] qemuarm64 isp-channel[207]: isp-channel: stats frames=472 fps=6.16 avg_fps=5.69 sensor_ms=76.30 isp_ms=85.30 encode_ms=0.07 frame_ms=161.75 max_frame_ms=195.57 cpu_pct=359 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  106.294542] qemuarm64 isp-channel[207]: isp-channel: stats frames=533 fps=6.00 avg_fps=5.72 sensor_ms=74.74 isp_ms=91.22 encode_ms=0.21 frame_ms=166.23 max_frame_ms=210.89 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  116.324760] qemuarm64 isp-channel[207]: isp-channel: stats frames=596 fps=6.28 avg_fps=5.78 sensor_ms=74.08 isp_ms=84.54 encode_ms=0.07 frame_ms=158.75 max_frame_ms=194.74 cpu_pct=359 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.909 wb_b=1.607
+[  126.410769] qemuarm64 isp-channel[207]: isp-channel: stats frames=659 fps=6.25 avg_fps=5.82 sensor_ms=78.64 isp_ms=80.62 encode_ms=0.06 frame_ms=159.40 max_frame_ms=223.45 cpu_pct=360 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  136.522843] qemuarm64 isp-channel[207]: isp-channel: stats frames=720 fps=6.03 avg_fps=5.84 sensor_ms=70.82 isp_ms=94.20 encode_ms=0.09 frame_ms=165.18 max_frame_ms=210.10 cpu_pct=356 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  146.633247] qemuarm64 isp-channel[207]: isp-channel: stats frames=783 fps=6.23 avg_fps=5.87 sensor_ms=71.59 isp_ms=88.27 encode_ms=0.10 frame_ms=160.09 max_frame_ms=231.37 cpu_pct=353 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  156.716583] qemuarm64 isp-channel[207]: isp-channel: stats frames=848 fps=6.45 avg_fps=5.91 sensor_ms=70.22 isp_ms=84.11 encode_ms=0.29 frame_ms=154.68 max_frame_ms=216.79 cpu_pct=357 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  166.823211] qemuarm64 isp-channel[207]: isp-channel: stats frames=910 fps=6.13 avg_fps=5.92 sensor_ms=70.17 isp_ms=90.94 encode_ms=1.39 frame_ms=162.60 max_frame_ms=227.57 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  176.942610] qemuarm64 isp-channel[207]: isp-channel: stats frames=973 fps=6.23 avg_fps=5.94 sensor_ms=75.54 isp_ms=84.30 encode_ms=0.10 frame_ms=160.00 max_frame_ms=219.71 cpu_pct=356 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  187.103994] qemuarm64 isp-channel[207]: isp-channel: stats frames=1039 fps=6.50 avg_fps=5.97 sensor_ms=67.68 isp_ms=85.84 encode_ms=0.14 frame_ms=153.72 max_frame_ms=193.10 cpu_pct=359 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  197.171980] qemuarm64 isp-channel[207]: isp-channel: stats frames=1100 fps=6.06 avg_fps=5.98 sensor_ms=72.30 isp_ms=91.97 encode_ms=0.14 frame_ms=164.49 max_frame_ms=233.55 cpu_pct=354 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  207.283744] qemuarm64 isp-channel[207]: isp-channel: stats frames=1160 fps=5.93 avg_fps=5.98 sensor_ms=74.79 isp_ms=93.17 encode_ms=0.21 frame_ms=168.25 max_frame_ms=222.51 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  217.471368] qemuarm64 isp-channel[207]: isp-channel: stats frames=1206 fps=4.52 avg_fps=5.90 sensor_ms=95.99 isp_ms=114.46 encode_ms=8.97 frame_ms=219.50 max_frame_ms=283.79 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  227.493929] qemuarm64 isp-channel[207]: isp-channel: stats frames=1251 fps=4.49 avg_fps=5.84 sensor_ms=89.55 isp_ms=115.52 encode_ms=16.73 frame_ms=221.89 max_frame_ms=265.10 cpu_pct=351 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  237.544662] qemuarm64 isp-channel[207]: isp-channel: stats frames=1305 fps=5.37 avg_fps=5.82 sensor_ms=79.59 isp_ms=100.75 encode_ms=4.93 frame_ms=185.34 max_frame_ms=304.03 cpu_pct=355 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  247.620501] qemuarm64 isp-channel[207]: isp-channel: stats frames=1369 fps=6.36 avg_fps=5.84 sensor_ms=71.19 isp_ms=85.70 encode_ms=0.07 frame_ms=157.02 max_frame_ms=248.45 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  257.768549] qemuarm64 isp-channel[207]: isp-channel: stats frames=1433 fps=6.31 avg_fps=5.86 sensor_ms=69.59 isp_ms=87.73 encode_ms=0.78 frame_ms=158.15 max_frame_ms=207.95 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  267.852472] qemuarm64 isp-channel[207]: isp-channel: stats frames=1496 fps=6.24 avg_fps=5.87 sensor_ms=71.47 isp_ms=88.09 encode_ms=0.14 frame_ms=159.76 max_frame_ms=220.07 cpu_pct=353 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  277.995921] qemuarm64 isp-channel[207]: isp-channel: stats frames=1557 fps=6.01 avg_fps=5.88 sensor_ms=72.94 isp_ms=92.74 encode_ms=0.33 frame_ms=166.07 max_frame_ms=256.94 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  288.020785] qemuarm64 isp-channel[207]: isp-channel: stats frames=1618 fps=6.09 avg_fps=5.89 sensor_ms=78.12 isp_ms=85.81 encode_ms=0.06 frame_ms=164.05 max_frame_ms=246.08 cpu_pct=355 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  298.124845] qemuarm64 isp-channel[207]: isp-channel: stats frames=1681 fps=6.24 avg_fps=5.90 sensor_ms=71.49 isp_ms=88.15 encode_ms=0.24 frame_ms=159.93 max_frame_ms=305.34 cpu_pct=357 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  308.250011] qemuarm64 isp-channel[207]: isp-channel: stats frames=1742 fps=6.02 avg_fps=5.90 sensor_ms=69.12 isp_ms=96.48 encode_ms=0.15 frame_ms=165.81 max_frame_ms=276.11 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  318.290712] qemuarm64 isp-channel[207]: isp-channel: stats frames=1800 fps=5.78 avg_fps=5.90 sensor_ms=76.26 isp_ms=96.18 encode_ms=0.07 frame_ms=172.59 max_frame_ms=295.24 cpu_pct=352 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  328.395774] qemuarm64 isp-channel[207]: isp-channel: stats frames=1860 fps=5.94 avg_fps=5.90 sensor_ms=73.75 isp_ms=94.22 encode_ms=0.06 frame_ms=168.11 max_frame_ms=324.79 cpu_pct=356 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  338.513852] qemuarm64 isp-channel[207]: isp-channel: stats frames=1918 fps=5.73 avg_fps=5.90 sensor_ms=78.77 isp_ms=95.12 encode_ms=0.07 frame_ms=174.02 max_frame_ms=271.99 cpu_pct=357 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  348.585843] qemuarm64 isp-channel[207]: isp-channel: stats frames=1963 fps=4.47 avg_fps=5.85 sensor_ms=93.39 isp_ms=115.01 encode_ms=14.62 frame_ms=223.11 max_frame_ms=294.61 cpu_pct=352 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  358.736758] qemuarm64 isp-channel[207]: isp-channel: stats frames=2005 fps=4.14 avg_fps=5.80 sensor_ms=99.48 isp_ms=123.15 encode_ms=18.58 frame_ms=241.30 max_frame_ms=310.32 cpu_pct=351 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  368.760589] qemuarm64 isp-channel[207]: isp-channel: stats frames=2048 fps=4.29 avg_fps=5.76 sensor_ms=101.41 isp_ms=119.62 encode_ms=10.54 frame_ms=231.65 max_frame_ms=315.49 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  378.864879] qemuarm64 isp-channel[207]: isp-channel: stats frames=2098 fps=4.95 avg_fps=5.74 sensor_ms=90.85 isp_ms=103.30 encode_ms=7.38 frame_ms=201.61 max_frame_ms=322.66 cpu_pct=354 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  388.902706] qemuarm64 isp-channel[207]: isp-channel: stats frames=2156 fps=5.78 avg_fps=5.74 sensor_ms=79.40 isp_ms=91.11 encode_ms=1.68 frame_ms=172.42 max_frame_ms=275.70 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  398.907412] qemuarm64 isp-channel[207]: isp-channel: stats frames=2217 fps=6.09 avg_fps=5.75 sensor_ms=74.89 isp_ms=88.50 encode_ms=0.08 frame_ms=163.55 max_frame_ms=239.35 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  408.937613] qemuarm64 isp-channel[207]: isp-channel: stats frames=2277 fps=5.98 avg_fps=5.75 sensor_ms=74.41 isp_ms=91.59 encode_ms=0.59 frame_ms=166.65 max_frame_ms=221.98 cpu_pct=356 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  418.999627] qemuarm64 isp-channel[207]: isp-channel: stats frames=2338 fps=6.06 avg_fps=5.76 sensor_ms=76.76 isp_ms=87.41 encode_ms=0.32 frame_ms=164.55 max_frame_ms=264.56 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  429.032697] qemuarm64 isp-channel[207]: isp-channel: stats frames=2400 fps=6.18 avg_fps=5.77 sensor_ms=74.69 isp_ms=84.99 encode_ms=1.62 frame_ms=161.35 max_frame_ms=283.92 cpu_pct=357 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  439.198376] qemuarm64 isp-channel[207]: isp-channel: stats frames=2458 fps=5.70 avg_fps=5.77 sensor_ms=84.42 isp_ms=90.34 encode_ms=0.15 frame_ms=174.99 max_frame_ms=355.18 cpu_pct=357 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  449.277650] qemuarm64 isp-channel[207]: isp-channel: stats frames=2515 fps=5.66 avg_fps=5.77 sensor_ms=76.64 isp_ms=99.54 encode_ms=0.07 frame_ms=176.33 max_frame_ms=316.29 cpu_pct=354 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  459.342979] qemuarm64 isp-channel[207]: isp-channel: stats frames=2578 fps=6.26 avg_fps=5.78 sensor_ms=74.40 isp_ms=84.64 encode_ms=0.08 frame_ms=159.18 max_frame_ms=283.99 cpu_pct=359 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  469.429800] qemuarm64 isp-channel[207]: isp-channel: stats frames=2641 fps=6.25 avg_fps=5.79 sensor_ms=71.03 isp_ms=88.68 encode_ms=0.08 frame_ms=159.85 max_frame_ms=287.10 cpu_pct=358 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  479.523082] qemuarm64 isp-channel[207]: isp-channel: stats frames=2703 fps=6.14 avg_fps=5.80 sensor_ms=70.08 isp_ms=92.09 encode_ms=0.17 frame_ms=162.40 max_frame_ms=218.33 cpu_pct=356 rss_mib=144.4 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  489.574663] qemuarm64 isp-channel[207]: isp-channel: stats frames=2768 fps=6.47 avg_fps=5.81 sensor_ms=70.03 isp_ms=84.21 encode_ms=0.08 frame_ms=154.37 max_frame_ms=195.15 cpu_pct=359 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  499.639717] qemuarm64 isp-channel[207]: isp-channel: stats frames=2818 fps=4.97 avg_fps=5.79 sensor_ms=83.56 isp_ms=104.30 encode_ms=12.78 frame_ms=200.82 max_frame_ms=280.00 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  509.719969] qemuarm64 isp-channel[207]: isp-channel: stats frames=2867 fps=4.86 avg_fps=5.77 sensor_ms=90.85 isp_ms=102.94 encode_ms=11.30 frame_ms=205.16 max_frame_ms=279.14 cpu_pct=354 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  519.831013] qemuarm64 isp-channel[207]: isp-channel: stats frames=2931 fps=6.33 avg_fps=5.78 sensor_ms=74.57 isp_ms=81.97 encode_ms=1.02 frame_ms=157.64 max_frame_ms=209.81 cpu_pct=359 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  529.980019] qemuarm64 isp-channel[207]: isp-channel: stats frames=2985 fps=5.32 avg_fps=5.78 sensor_ms=84.06 isp_ms=97.93 encode_ms=5.54 frame_ms=187.60 max_frame_ms=251.99 cpu_pct=357 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  540.005186] qemuarm64 isp-channel[207]: isp-channel: stats frames=3029 fps=4.39 avg_fps=5.75 sensor_ms=96.50 isp_ms=110.96 encode_ms=19.29 frame_ms=226.87 max_frame_ms=296.94 cpu_pct=351 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  550.178097] qemuarm64 isp-channel[207]: isp-channel: stats frames=3075 fps=4.52 avg_fps=5.73 sensor_ms=88.05 isp_ms=117.60 encode_ms=14.65 frame_ms=220.38 max_frame_ms=283.81 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  560.174518] qemuarm64 isp-channel[207]: isp-channel: stats frames=3121 fps=4.60 avg_fps=5.71 sensor_ms=87.39 isp_ms=113.91 encode_ms=15.38 frame_ms=216.79 max_frame_ms=284.35 cpu_pct=351 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  570.200100] qemuarm64 isp-channel[207]: isp-channel: stats frames=3184 fps=6.28 avg_fps=5.72 sensor_ms=70.07 isp_ms=88.24 encode_ms=0.30 frame_ms=158.68 max_frame_ms=205.96 cpu_pct=353 rss_mib=144.3 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  580.213315] qemuarm64 isp-channel[207]: isp-channel: stats frames=3248 fps=6.39 avg_fps=5.73 sensor_ms=70.67 isp_ms=85.20 encode_ms=0.13 frame_ms=156.06 max_frame_ms=193.81 cpu_pct=357 rss_mib=144.3 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  590.288463] qemuarm64 isp-channel[207]: isp-channel: stats frames=3314 fps=6.55 avg_fps=5.74 sensor_ms=66.68 isp_ms=85.09 encode_ms=0.11 frame_ms=151.95 max_frame_ms=208.06 cpu_pct=354 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  600.426210] qemuarm64 isp-channel[207]: isp-channel: stats frames=3379 fps=6.41 avg_fps=5.75 sensor_ms=70.25 isp_ms=85.38 encode_ms=0.06 frame_ms=155.75 max_frame_ms=223.70 cpu_pct=357 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  610.516573] qemuarm64 isp-channel[207]: isp-channel: stats frames=3443 fps=6.35 avg_fps=5.76 sensor_ms=68.29 isp_ms=88.28 encode_ms=0.65 frame_ms=157.29 max_frame_ms=234.45 cpu_pct=357 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  620.560501] qemuarm64 isp-channel[207]: isp-channel: stats frames=3508 fps=6.47 avg_fps=5.78 sensor_ms=68.81 isp_ms=84.98 encode_ms=0.14 frame_ms=154.00 max_frame_ms=194.10 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.909 wb_b=1.607
+[  622.933657] qemuarm64 isp-channel[207]: isp-channel: snapshot self-test: ISP output vs source picture PSNR 28.6 dB
+[  623.988662] qemuarm64 isp-channel[207]: isp-channel: snapshot saved: /var/lib/isp-channel/snapshot-20261124-113416-003520.png (1920x1080)
+[  630.608648] qemuarm64 isp-channel[207]: isp-channel: stats frames=3568 fps=5.97 avg_fps=5.78 sensor_ms=73.82 isp_ms=89.59 encode_ms=0.08 frame_ms=167.14 max_frame_ms=395.19 cpu_pct=353 rss_mib=150.7 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = tungsten   -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  640.641108] qemuarm64 isp-channel[207]: isp-channel: stats frames=3626 fps=5.78 avg_fps=5.78 sensor_ms=79.17 isp_ms=92.86 encode_ms=0.43 frame_ms=172.52 max_frame_ms=238.54 cpu_pct=355 rss_mib=150.7 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.200 wb_b=2.600
+[  643.240584] qemuarm64 systemd[1]: isp-channel.service: Sent signal SIGUSR1 to main process 207 (isp-channel) on client request.
+[  643.750493] qemuarm64 isp-channel[207]: isp-channel: snapshot self-test: ISP output vs source picture PSNR 13.4 dB
+[  644.596796] qemuarm64 isp-channel[207]: isp-channel: snapshot saved: /var/lib/isp-channel/snapshot-20261124-113436-003641.png (1920x1080)
+[  650.741367] qemuarm64 isp-channel[207]: isp-channel: stats frames=3683 fps=5.64 avg_fps=5.78 sensor_ms=75.54 isp_ms=96.84 encode_ms=0.08 frame_ms=176.84 max_frame_ms=456.26 cpu_pct=350 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.200 wb_b=2.600
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  660.865289] qemuarm64 isp-channel[207]: isp-channel: stats frames=3744 fps=6.03 avg_fps=5.78 sensor_ms=75.35 isp_ms=90.14 encode_ms=0.08 frame_ms=165.63 max_frame_ms=225.07 cpu_pct=354 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.903 wb_b=1.604
+[  670.971188] qemuarm64 isp-channel[207]: isp-channel: stats frames=3806 fps=6.14 avg_fps=5.79 sensor_ms=72.14 isp_ms=90.46 encode_ms=0.07 frame_ms=162.73 max_frame_ms=204.07 cpu_pct=357 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.903 wb_b=1.604
+[  674.146842] qemuarm64 systemd[1]: Stopping Camera ISP channel (libcamera, software ISP, H.264)...
+[  674.227223] qemuarm64 isp-channel[207]: isp-channel: stopping
+[  674.443621] qemuarm64 isp-channel[207]: isp-channel: summary frames=3826 seconds=661.3 avg_fps=5.79 worst_frame_ms=456.26 cpu_pct=354 rss_start_mib=8.2 rss_end_mib=119.1 rss_peak_mib=150.8 dropped=0 failed=0
+[  675.289804] qemuarm64 systemd[1]: isp-channel.service: Deactivated successfully.
+[  675.298176] qemuarm64 systemd[1]: Stopped Camera ISP channel (libcamera, software ISP, H.264).
+[  675.298819] qemuarm64 systemd[1]: isp-channel.service: Consumed 39min 3.948s CPU time, 147.4M memory peak, 0B memory swap peak.

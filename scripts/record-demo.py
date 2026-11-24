@@ -34,17 +34,17 @@ SESSION = "isp-demo"
 # (command typed into the guest, seconds to show its output)
 DEMO = [
     ("# Camera ISP channel: Yocto image booted in QEMU (qemuarm64)", 3),
-    ("systemctl status isp-channel --no-pager | head -5", 6),
+    ("systemctl status isp-channel --no-pager | head -n 5", 6),
     ("cam -l", 6),
-    ("journalctl -u isp-channel --no-pager -o cat | grep -E 'camera|RAW|ISP|control ' | cut -c1-110 | head -22", 12),
+    ("journalctl -u isp-channel --no-pager -o cat | grep -E 'camera|RAW|ISP|control ' | cut -c1-110 | head -n 22", 12),
     ("clear; isp-ctl get", 8),
     ("isp-ctl snapshot", 6),
     ("isp-ctl set Brightness 0.2; isp-ctl set AwbMode tungsten", 12),
     ("systemctl kill -s USR1 isp-channel", 12),
     ("isp-ctl set Brightness 0; isp-ctl set AwbMode auto", 4),
-    ("clear; journalctl -u isp-channel --no-pager -o cat | cut -c1-116 | tail -9", 12),
+    ("clear; journalctl -u isp-channel --no-pager -o cat | cut -c1-116 | tail -n 9", 12),
     ("ls -l /var/lib/isp-channel", 8),
-    ("systemctl stop isp-channel; journalctl -u isp-channel --no-pager -o cat | cut -c1-116 | tail -3", 14),
+    ("systemctl stop isp-channel; journalctl -u isp-channel --no-pager -o cat | cut -c1-116 | tail -n 3", 14),
     ("grep -c . /proc/cpuinfo > /dev/null; uname -srm; grep PRETTY /etc/os-release", 5),
 ]
 

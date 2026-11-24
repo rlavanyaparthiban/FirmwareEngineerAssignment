@@ -33,6 +33,7 @@ import pexpect
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOTFS = "isp-image-qemuarm64.rootfs.ext4"
 DONE = re.compile(r"__DONE_(\d+)__")
+ANSI = re.compile(r"\x1b\[[0-9;?]*[A-Za-z]")  # colour and cursor escape sequences
 RING_FILES = 10  # max-files of the splitmuxsink in the shipped pipeline
 
 
@@ -57,7 +58,7 @@ class Guest:
         self.child.sendline(f"{command}; echo __DONE_$?__")
         self.child.expect(DONE, timeout=timeout)
         status = int(self.child.match.group(1))
-        output = self.child.before.replace("\r", "").strip()
+        output = ANSI.sub("", self.child.before.replace("\r", "")).strip()
         self.child.expect(r"[#$] ", timeout=30)
         if check and status != 0:
             raise RuntimeError(f"guest command failed ({status}): {command}\n{output}")
@@ -68,6 +69,11 @@ class Guest:
         self.child.expect(pexpect.EOF, timeout=300)
         self.child.close()
         self.log.close()
+        # Keep the saved console log readable: drop escape sequences and CRs.
+        with open(self.log.name, encoding="utf-8", errors="replace") as f:
+            text = ANSI.sub("", f.read()).replace("\r", "")
+        with open(self.log.name, "w", encoding="utf-8") as f:
+            f.write(text)
 
 
 def parse_stats(journal):
@@ -98,6 +104,13 @@ def write_measurements(path, args, stats, summary, samples, bench, psnr, encoded
         return sum(values) / len(values) if values else float("nan")
 
     rss = column(stats, "rss_mib")
+    if encoded is None:
+        encoded_text = "not counted (no ffprobe on the host)"
+    elif encoded == int(summary["frames"]):
+        encoded_text = f"{encoded} frames, one per captured frame"
+    else:
+        encoded_text = (f"{summary['frames']} frames encoded; the ten newest one-minute segments "
+                        f"still on disk hold {encoded} (older ones were rotated out)")
     lines = [
         "# QEMU measurements",
         "",
@@ -115,8 +128,7 @@ def write_measurements(path, args, stats, summary, samples, bench, psnr, encoded
         "| Viewfinder stream (libcamera, NV12 1920x1080) | "
         f"{float(summary['avg_fps']):.2f} fps average |",
         "| RAW stream (mosaic step, RGGB 10-bit 1920x1080) | same frames, 1:1 |",
-        "| Encoded stream (H.264 in MP4) | "
-        + (f"{encoded} frames" if encoded is not None else "not counted (no ffprobe)") + " |",
+        "| Encoded stream (H.264 in MP4) | " + encoded_text + " |",
         f"| FPS per {args.stats_interval} s interval, steady state | "
         f"min {min(fps):.2f} / mean {sum(fps) / len(fps):.2f} / max {max(fps):.2f} |",
         f"| Dropped frames | {summary['dropped']} |",
@@ -194,16 +206,16 @@ def main():
             time.sleep(5)
         check(guest.run("systemctl is-active isp-channel", check=False) == "active",
               "isp-channel.service is active after boot")
-        info.append(guest.run("systemctl status isp-channel --no-pager -l | head -15", check=False))
+        info.append(guest.run("systemctl status isp-channel --no-pager -l | head -n 15", check=False))
 
         # Soak: let it stream, sampling the system once a minute.
         samples = []
         end = time.time() + args.soak
         while time.time() < end:
             time.sleep(min(60, max(1, end - time.time())))
-            samples.append(guest.run("top -b -n 1 | head -8", check=False))
+            samples.append(guest.run("top -b -n 1 | head -n 8", check=False))
             samples.append("")
-            print(guest.run("isp-ctl get | tail -1", check=False), flush=True)
+            print(guest.run("isp-ctl get | tail -n 1", check=False), flush=True)
 
         # Controls and snapshot triggers.
         guest.run("isp-ctl snapshot")                       # reference picture

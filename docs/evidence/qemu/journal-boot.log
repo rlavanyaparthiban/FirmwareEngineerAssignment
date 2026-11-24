@@ -1,0 +1,831 @@
+[    0.000000] qemuarm64 kernel: Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+[    0.000000] qemuarm64 kernel: Linux version 6.6.151-yocto-standard (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 13.5.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 SMP PREEMPT Tue Aug 18 18:50:33 UTC 2026
+[    0.000000] qemuarm64 kernel: random: crng init done
+[    0.000000] qemuarm64 kernel: Machine model: linux,dummy-virt
+[    0.000000] qemuarm64 kernel: efi: UEFI not found.
+[    0.000000] qemuarm64 kernel: Zone ranges:
+[    0.000000] qemuarm64 kernel:   DMA      [mem 0x0000000040000000-0x000000007fffffff]
+[    0.000000] qemuarm64 kernel:   DMA32    empty
+[    0.000000] qemuarm64 kernel:   Normal   empty
+[    0.000000] qemuarm64 kernel: Movable zone start for each node
+[    0.000000] qemuarm64 kernel: Early memory node ranges
+[    0.000000] qemuarm64 kernel:   node   0: [mem 0x0000000040000000-0x000000007fffffff]
+[    0.000000] qemuarm64 kernel: Initmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[    0.000000] qemuarm64 kernel: psci: probing for conduit method from DT.
+[    0.000000] qemuarm64 kernel: psci: PSCIv1.1 detected in firmware.
+[    0.000000] qemuarm64 kernel: psci: Using standard PSCI v0.2 function IDs
+[    0.000000] qemuarm64 kernel: psci: Trusted OS migration not required
+[    0.000000] qemuarm64 kernel: psci: SMC Calling Convention v1.0
+[    0.000000] qemuarm64 kernel: percpu: Embedded 27 pages/cpu s73704 r8192 d28696 u110592
+[    0.000000] qemuarm64 kernel: pcpu-alloc: s73704 r8192 d28696 u110592 alloc=27*4096
+[    0.000000] qemuarm64 kernel: pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] qemuarm64 kernel: Detected PIPT I-cache on CPU0
+[    0.000000] qemuarm64 kernel: CPU features: detected: Spectre-v2
+[    0.000000] qemuarm64 kernel: CPU features: detected: Spectre-v4
+[    0.000000] qemuarm64 kernel: CPU features: detected: Spectre-BHB
+[    0.000000] qemuarm64 kernel: CPU features: detected: ARM erratum 1742098
+[    0.000000] qemuarm64 kernel: CPU features: detected: ARM erratum 832075
+[    0.000000] qemuarm64 kernel: CPU features: detected: ARM errata 1165522, 1319367, or 1530923
+[    0.000000] qemuarm64 kernel: alternatives: applying boot alternatives
+[    0.000000] qemuarm64 kernel: Kernel command line: root=/dev/vda rw console=ttyAMA0 ip=dhcp
+[    0.000000] qemuarm64 kernel: Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] qemuarm64 kernel: Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] qemuarm64 kernel: Built 1 zonelists, mobility grouping on.  Total pages: 258048
+[    0.000000] qemuarm64 kernel: mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[    0.000000] qemuarm64 kernel: software IO TLB: area num 4.
+[    0.000000] qemuarm64 kernel: software IO TLB: mapped [mem 0x000000007a980000-0x000000007e980000] (64MB)
+[    0.000000] qemuarm64 kernel: Memory: 934828K/1048576K available (13184K kernel code, 2000K rwdata, 3132K rodata, 4544K init, 556K bss, 113748K reserved, 0K cma-reserved)
+[    0.000000] qemuarm64 kernel: SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] qemuarm64 kernel: ftrace: allocating 40423 entries in 158 pages
+[    0.000000] qemuarm64 kernel: ftrace: allocated 158 pages with 5 groups
+[    0.000000] qemuarm64 kernel: rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] qemuarm64 kernel: rcu:         RCU event tracing is enabled.
+[    0.000000] qemuarm64 kernel: rcu:         RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+[    0.000000] qemuarm64 kernel:         Trampoline variant of Tasks RCU enabled.
+[    0.000000] qemuarm64 kernel:         Rude variant of Tasks RCU enabled.
+[    0.000000] qemuarm64 kernel:         Tracing variant of Tasks RCU enabled.
+[    0.000000] qemuarm64 kernel: rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] qemuarm64 kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] qemuarm64 kernel: NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] qemuarm64 kernel: Root IRQ handler: gic_handle_irq
+[    0.000000] qemuarm64 kernel: GICv2m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[    0.000000] qemuarm64 kernel: rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[    0.000000] qemuarm64 kernel: arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[    0.000000] qemuarm64 kernel: clocksource: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[    0.000085] qemuarm64 kernel: sched_clock: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[    0.009924] qemuarm64 kernel: kfence: initialized - using 2097152 bytes for 255 objects at 0x(____ptrval____)-0x(____ptrval____)
+[    0.017464] qemuarm64 kernel: Console: colour dummy device 80x25
+[    0.019064] qemuarm64 kernel: Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+[    0.019328] qemuarm64 kernel: pid_max: default: 32768 minimum: 301
+[    0.020842] qemuarm64 kernel: LSM: initializing lsm=capability,landlock,integrity
+[    0.021344] qemuarm64 kernel: landlock: Up and running.
+[    0.024750] qemuarm64 kernel: Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.024813] qemuarm64 kernel: Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.055202] qemuarm64 kernel: cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.067027] qemuarm64 kernel: RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.067662] qemuarm64 kernel: RCU Tasks Rude: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.067812] qemuarm64 kernel: RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[    0.069227] qemuarm64 kernel: rcu: Hierarchical SRCU implementation.
+[    0.069551] qemuarm64 kernel: rcu:         Max phase no-delay instances is 1000.
+[    0.073950] qemuarm64 kernel: EFI services will not be available.
+[    0.076313] qemuarm64 kernel: smp: Bringing up secondary CPUs ...
+[    0.083336] qemuarm64 kernel: Detected PIPT I-cache on CPU1
+[    0.084972] qemuarm64 kernel: CPU1: Booted secondary processor 0x0000000001 [0x411fd070]
+[    0.091639] qemuarm64 kernel: Detected PIPT I-cache on CPU2
+[    0.092037] qemuarm64 kernel: CPU2: Booted secondary processor 0x0000000002 [0x411fd070]
+[    0.094211] qemuarm64 kernel: Detected PIPT I-cache on CPU3
+[    0.094615] qemuarm64 kernel: CPU3: Booted secondary processor 0x0000000003 [0x411fd070]
+[    0.096363] qemuarm64 kernel: smp: Brought up 1 node, 4 CPUs
+[    0.096419] qemuarm64 kernel: SMP: Total of 4 processors activated.
+[    0.096528] qemuarm64 kernel: CPU features: detected: 32-bit EL0 Support
+[    0.096587] qemuarm64 kernel: CPU features: detected: CRC32 instructions
+[    0.099781] qemuarm64 kernel: CPU: All CPU(s) started at EL1
+[    0.099812] qemuarm64 kernel: alternatives: applying system-wide alternatives
+[    0.129479] qemuarm64 kernel: devtmpfs: initialized
+[    0.141572] qemuarm64 kernel: clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.141820] qemuarm64 kernel: futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.154977] qemuarm64 kernel: DMI not present or invalid.
+[    0.168308] qemuarm64 kernel: NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.178412] qemuarm64 kernel: DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.178673] qemuarm64 kernel: DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.178792] qemuarm64 kernel: DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.183653] qemuarm64 kernel: hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.185359] qemuarm64 kernel: ASID allocator initialised with 65536 entries
+[    0.185882] qemuarm64 kernel: Serial: AMBA PL011 UART driver
+[    0.218610] qemuarm64 kernel: 9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 13, base_baud = 0) is a PL011 rev1
+[    0.221330] qemuarm64 kernel: printk: console [ttyAMA0] enabled
+[    0.279049] qemuarm64 kernel: Modules: 26864 pages in range for non-PLT usage
+[    0.279184] qemuarm64 kernel: Modules: 518384 pages in range for PLT usage
+[    0.367968] qemuarm64 kernel: raid6: neonx8   gen()  3700 MB/s
+[    0.438394] qemuarm64 kernel: raid6: neonx4   gen()  3175 MB/s
+[    0.509464] qemuarm64 kernel: raid6: neonx2   gen()  2081 MB/s
+[    0.580226] qemuarm64 kernel: raid6: neonx1   gen()   982 MB/s
+[    0.650834] qemuarm64 kernel: raid6: int64x8  gen()  1162 MB/s
+[    0.721202] qemuarm64 kernel: raid6: int64x4  gen()  2744 MB/s
+[    0.792427] qemuarm64 kernel: raid6: int64x2  gen()  2359 MB/s
+[    0.862559] qemuarm64 kernel: raid6: int64x1  gen()  1790 MB/s
+[    0.863085] qemuarm64 kernel: raid6: using algorithm neonx8 gen() 3700 MB/s
+[    0.934589] qemuarm64 kernel: raid6: .... xor() 1504 MB/s, rmw enabled
+[    0.934989] qemuarm64 kernel: raid6: using neon recovery algorithm
+[    0.937600] qemuarm64 kernel: iommu: Default domain type: Translated
+[    0.937768] qemuarm64 kernel: iommu: DMA domain TLB invalidation policy: strict mode
+[    0.939921] qemuarm64 kernel: SCSI subsystem initialized
+[    0.941052] qemuarm64 kernel: usbcore: registered new interface driver usbfs
+[    0.941560] qemuarm64 kernel: usbcore: registered new interface driver hub
+[    0.941840] qemuarm64 kernel: usbcore: registered new device driver usb
+[    0.942444] qemuarm64 kernel: pps_core: LinuxPPS API ver. 1 registered
+[    0.943095] qemuarm64 kernel: pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.943932] qemuarm64 kernel: PTP clock support registered
+[    0.961501] qemuarm64 kernel: vgaarb: loaded
+[    0.963312] qemuarm64 kernel: clocksource: Switched to clocksource arch_sys_counter
+[    1.019780] qemuarm64 kernel: NET: Registered PF_INET protocol family
+[    1.022516] qemuarm64 kernel: IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    1.036736] qemuarm64 kernel: tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+[    1.037399] qemuarm64 kernel: Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    1.037789] qemuarm64 kernel: TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    1.038373] qemuarm64 kernel: TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[    1.039755] qemuarm64 kernel: TCP: Hash tables configured (established 8192 bind 8192)
+[    1.041944] qemuarm64 kernel: UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    1.042415] qemuarm64 kernel: UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    1.044556] qemuarm64 kernel: NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    1.050823] qemuarm64 kernel: RPC: Registered named UNIX socket transport module.
+[    1.052558] qemuarm64 kernel: RPC: Registered udp transport module.
+[    1.052906] qemuarm64 kernel: RPC: Registered tcp transport module.
+[    1.053420] qemuarm64 kernel: RPC: Registered tcp-with-tls transport module.
+[    1.053955] qemuarm64 kernel: RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    1.055408] qemuarm64 kernel: PCI: CLS 0 bytes, default 64
+[    1.072069] qemuarm64 kernel: workingset: timestamp_bits=46 max_order=18 bucket_order=0
+[    1.079998] qemuarm64 kernel: NFS: Registering the id_resolver key type
+[    1.082050] qemuarm64 kernel: Key type id_resolver registered
+[    1.082279] qemuarm64 kernel: Key type id_legacy registered
+[    1.092888] qemuarm64 kernel: Key type cifs.idmap registered
+[    1.162573] qemuarm64 kernel: xor: measuring software checksum speed
+[    1.164764] qemuarm64 kernel:    8regs           :  1743 MB/sec
+[    1.166437] qemuarm64 kernel:    32regs          :  2336 MB/sec
+[    1.168475] qemuarm64 kernel:    arm64_neon      :  1792 MB/sec
+[    1.168643] qemuarm64 kernel: xor: using function: 32regs (2336 MB/sec)
+[    1.169612] qemuarm64 kernel: Block layer SCSI generic (bsg) driver version 0.4 loaded (major 249)
+[    1.170302] qemuarm64 kernel: io scheduler mq-deadline registered
+[    1.170697] qemuarm64 kernel: io scheduler kyber registered
+[    1.176768] qemuarm64 kernel: pci-host-generic 4010000000.pcie: host bridge /pcie@10000000 ranges:
+[    1.178214] qemuarm64 kernel: pci-host-generic 4010000000.pcie:       IO 0x003eff0000..0x003effffff -> 0x0000000000
+[    1.179699] qemuarm64 kernel: pci-host-generic 4010000000.pcie:      MEM 0x0010000000..0x003efeffff -> 0x0010000000
+[    1.180202] qemuarm64 kernel: pci-host-generic 4010000000.pcie:      MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[    1.181642] qemuarm64 kernel: pci-host-generic 4010000000.pcie: Memory resource size exceeds max for 32 bits
+[    1.183316] qemuarm64 kernel: pci-host-generic 4010000000.pcie: ECAM at [mem 0x4010000000-0x401fffffff] for [bus 00-ff]
+[    1.186180] qemuarm64 kernel: pci-host-generic 4010000000.pcie: PCI host bridge to bus 0000:00
+[    1.186744] qemuarm64 kernel: pci_bus 0000:00: root bus resource [bus 00-ff]
+[    1.187707] qemuarm64 kernel: pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[    1.188178] qemuarm64 kernel: pci_bus 0000:00: root bus resource [mem 0x10000000-0x3efeffff]
+[    1.188791] qemuarm64 kernel: pci_bus 0000:00: root bus resource [mem 0x8000000000-0xffffffffff]
+[    1.191848] qemuarm64 kernel: pci 0000:00:00.0: [1b36:0008] type 00 class 0x060000
+[    1.197090] qemuarm64 kernel: pci 0000:00:01.0: [1af4:1001] type 00 class 0x010000
+[    1.197723] qemuarm64 kernel: pci 0000:00:01.0: BAR 0 [io  0x0000-0x007f]
+[    1.198342] qemuarm64 kernel: pci 0000:00:01.0: BAR 1 [mem 0x00000000-0x00000fff]
+[    1.198670] qemuarm64 kernel: pci 0000:00:01.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[    1.200083] qemuarm64 kernel: pci 0000:00:02.0: [1af4:1000] type 00 class 0x020000
+[    1.200380] qemuarm64 kernel: pci 0000:00:02.0: BAR 0 [io  0x0000-0x001f]
+[    1.200875] qemuarm64 kernel: pci 0000:00:02.0: BAR 1 [mem 0x00000000-0x00000fff]
+[    1.201684] qemuarm64 kernel: pci 0000:00:02.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[    1.203570] qemuarm64 kernel: pci 0000:00:03.0: [1af4:1005] type 00 class 0x00ff00
+[    1.204201] qemuarm64 kernel: pci 0000:00:03.0: BAR 0 [io  0x0000-0x001f]
+[    1.204685] qemuarm64 kernel: pci 0000:00:03.0: BAR 1 [mem 0x00000000-0x00000fff]
+[    1.205359] qemuarm64 kernel: pci 0000:00:03.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[    1.210065] qemuarm64 kernel: pci 0000:00:01.0: BAR 4 [mem 0x8000000000-0x8000003fff 64bit pref]: assigned
+[    1.211892] qemuarm64 kernel: pci 0000:00:02.0: BAR 4 [mem 0x8000004000-0x8000007fff 64bit pref]: assigned
+[    1.212686] qemuarm64 kernel: pci 0000:00:03.0: BAR 4 [mem 0x8000008000-0x800000bfff 64bit pref]: assigned
+[    1.213315] qemuarm64 kernel: pci 0000:00:01.0: BAR 1 [mem 0x10000000-0x10000fff]: assigned
+[    1.214179] qemuarm64 kernel: pci 0000:00:02.0: BAR 1 [mem 0x10001000-0x10001fff]: assigned
+[    1.214921] qemuarm64 kernel: pci 0000:00:03.0: BAR 1 [mem 0x10002000-0x10002fff]: assigned
+[    1.216522] qemuarm64 kernel: pci 0000:00:01.0: BAR 0 [io  0x1000-0x107f]: assigned
+[    1.217259] qemuarm64 kernel: pci 0000:00:02.0: BAR 0 [io  0x1080-0x109f]: assigned
+[    1.217721] qemuarm64 kernel: pci 0000:00:03.0: BAR 0 [io  0x10a0-0x10bf]: assigned
+[    1.225112] qemuarm64 kernel: virtio-pci 0000:00:01.0: enabling device (0000 -> 0003)
+[    1.233563] qemuarm64 kernel: virtio-pci 0000:00:02.0: enabling device (0000 -> 0003)
+[    1.237589] qemuarm64 kernel: virtio-pci 0000:00:03.0: enabling device (0000 -> 0003)
+[    1.312337] qemuarm64 kernel: brd: module loaded
+[    1.314016] qemuarm64 kernel: virtio_blk virtio0: 4/0/0 default/read/poll queues
+[    1.323327] qemuarm64 kernel: virtio_blk virtio0: [vda] 1382756 512-byte logical blocks (708 MB/675 MiB)
+[    1.350773] qemuarm64 kernel: rtc-pl031 9010000.pl031: registered as rtc0
+[    1.352495] qemuarm64 kernel: rtc-pl031 9010000.pl031: setting system clock to 2026-11-24T11:23:54 UTC (1795519434)
+[    1.356671] qemuarm64 kernel: device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[    1.361336] qemuarm64 kernel: usbcore: registered new interface driver usbhid
+[    1.361728] qemuarm64 kernel: usbhid: USB HID core driver
+[    1.367549] qemuarm64 kernel: hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    1.369221] qemuarm64 kernel: u32 classifier
+[    1.369337] qemuarm64 kernel:     input device check on
+[    1.369654] qemuarm64 kernel:     Actions configured
+[    1.371725] qemuarm64 kernel: NET: Registered PF_INET6 protocol family
+[    1.383958] qemuarm64 kernel: Segment Routing with IPv6
+[    1.384517] qemuarm64 kernel: In-situ OAM (IOAM) with IPv6
+[    1.385749] qemuarm64 kernel: sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.389318] qemuarm64 kernel: NET: Registered PF_PACKET protocol family
+[    1.392392] qemuarm64 kernel: Bridge firewalling registered
+[    1.393760] qemuarm64 kernel: Key type dns_resolver registered
+[    1.394787] qemuarm64 kernel: NET: Registered PF_VSOCK protocol family
+[    1.410789] qemuarm64 kernel: registered taskstats version 1
+[    1.436977] qemuarm64 kernel: Key type .fscrypt registered
+[    1.437632] qemuarm64 kernel: Key type fscrypt-provisioning registered
+[    1.447034] qemuarm64 kernel: Btrfs loaded, zoned=no, fsverity=no
+[    1.480304] qemuarm64 kernel: Key type encrypted registered
+[    1.484904] qemuarm64 kernel: printk: console [netcon0] enabled
+[    1.485217] qemuarm64 kernel: netconsole: network logging started
+[    1.527639] qemuarm64 kernel: Sending DHCP requests ., OK
+[    1.544315] qemuarm64 kernel: IP-Config: Got DHCP answer from 10.0.2.2, my address is 10.0.2.15
+[    1.545468] qemuarm64 kernel: IP-Config: Complete:
+[    1.545764] qemuarm64 kernel:      device=eth0, hwaddr=52:54:00:12:34:56, ipaddr=10.0.2.15, mask=255.255.255.0, gw=10.0.2.2
+[    1.547620] qemuarm64 kernel:      host=10.0.2.15, domain=, nis-domain=(none)
+[    1.548231] qemuarm64 kernel:      bootserver=10.0.2.2, rootserver=10.0.2.2, rootpath=
+[    1.548293] qemuarm64 kernel:      nameserver0=10.0.2.3
+[    1.556055] qemuarm64 kernel: clk: Disabling unused clocks
+[    1.562713] qemuarm64 kernel: md: Waiting for all devices to be available before autodetect
+[    1.562920] qemuarm64 kernel: md: If you don't use raid, use raid=noautodetect
+[    1.563730] qemuarm64 kernel: md: Autodetecting RAID arrays.
+[    1.564017] qemuarm64 kernel: md: autorun ...
+[    1.564363] qemuarm64 kernel: md: ... autorun DONE.
+[    1.748464] qemuarm64 kernel: EXT4-fs (vda): mounted filesystem 961fca2f-1049-41bf-a945-f8d1b7f955c0 r/w with ordered data mode. Quota mode: disabled.
+[    1.749928] qemuarm64 kernel: VFS: Mounted root (ext4 filesystem) on device 253:0.
+[    1.752962] qemuarm64 kernel: devtmpfs: mounted
+[    1.827493] qemuarm64 kernel: Freeing unused kernel memory: 4544K
+[    1.828660] qemuarm64 kernel: Run /sbin/init as init process
+[    1.828941] qemuarm64 kernel:   with arguments:
+[    1.828962] qemuarm64 kernel:     /sbin/init
+[    1.828978] qemuarm64 kernel:   with environment:
+[    1.828992] qemuarm64 kernel:     HOME=/
+[    1.829006] qemuarm64 kernel:     TERM=linux
+[    2.290700] qemuarm64 systemd[1]: systemd 255.22^ running in system mode (-PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[    2.294295] qemuarm64 systemd[1]: Detected virtualization qemu.
+[    2.294714] qemuarm64 systemd[1]: Detected architecture arm64.
+[    2.314338] qemuarm64 systemd[1]: Hostname set to <qemuarm64>.
+[    2.321794] qemuarm64 systemd[1]: Initializing machine ID from random generator.
+[    4.008555] qemuarm64 systemd[1]: Queued start job for default target Multi-User System.
+[    4.147448] qemuarm64 systemd[1]: Created slice Slice /system/getty.
+[    4.157724] qemuarm64 systemd[1]: Created slice Slice /system/modprobe.
+[    4.163756] qemuarm64 systemd[1]: Created slice Slice /system/serial-getty.
+[    4.168255] qemuarm64 systemd[1]: Created slice User and Session Slice.
+[    4.172559] qemuarm64 systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[    4.175679] qemuarm64 systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[    4.177572] qemuarm64 systemd[1]: Reached target Path Units.
+[    4.178772] qemuarm64 systemd[1]: Reached target Remote File Systems.
+[    4.182015] qemuarm64 systemd[1]: Reached target Slice Units.
+[    4.183921] qemuarm64 systemd[1]: Reached target Swaps.
+[    4.191544] qemuarm64 systemd[1]: Listening on Syslog Socket.
+[    4.194558] qemuarm64 systemd[1]: Listening on initctl Compatibility Named Pipe.
+[    4.253190] qemuarm64 systemd[1]: Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[    4.257859] qemuarm64 systemd[1]: Listening on Journal Socket (/dev/log).
+[    4.261548] qemuarm64 systemd[1]: Listening on Journal Socket.
+[    4.265542] qemuarm64 systemd[1]: Listening on Network Service Netlink Socket.
+[    4.269998] qemuarm64 systemd[1]: Listening on udev Control Socket.
+[    4.273251] qemuarm64 systemd[1]: Listening on udev Kernel Socket.
+[    4.276116] qemuarm64 systemd[1]: Listening on User Database Manager Socket.
+[    4.280315] qemuarm64 systemd[1]: Huge Pages File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/mm/hugepages).
+[    4.343730] qemuarm64 systemd[1]: Mounting POSIX Message Queue File System...
+[    4.388202] qemuarm64 systemd[1]: Mounting Kernel Debug File System...
+[    4.404857] qemuarm64 systemd[1]: Mounting Kernel Trace File System...
+[    4.473262] qemuarm64 systemd[1]: Mounting Temporary Directory /tmp...
+[    4.481114] qemuarm64 systemd[1]: Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.6.151-yocto-standard/modules.devname).
+[    4.545051] qemuarm64 systemd[1]: Starting Load Kernel Module configfs...
+[    4.626462] qemuarm64 systemd[1]: Starting Load Kernel Module drm...
+[    4.694967] qemuarm64 systemd[1]: Starting Load Kernel Module fuse...
+[    4.727753] qemuarm64 systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[    4.821908] qemuarm64 systemd[1]: Starting Journal Service...
+[    4.841283] qemuarm64 systemd[1]: Load Kernel Modules was skipped because no trigger condition checks were met.
+[    4.928543] qemuarm64 systemd[1]: Starting Generate network units from Kernel command line...
+[    4.998302] qemuarm64 systemd[1]: Starting Remount Root and Kernel File Systems...
+[    5.057450] qemuarm64 systemd[1]: Starting Apply Kernel Variables...
+[    5.110038] qemuarm64 systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+[    5.218431] qemuarm64 systemd[1]: Starting Coldplug All udev Devices...
+[    5.308119] qemuarm64 systemd[1]: Mounted POSIX Message Queue File System.
+[    5.329160] qemuarm64 systemd[1]: Mounted Kernel Debug File System.
+[    5.341112] qemuarm64 systemd[1]: Mounted Kernel Trace File System.
+[    5.358325] qemuarm64 systemd[1]: Mounted Temporary Directory /tmp.
+[    5.405159] qemuarm64 systemd[1]: modprobe@configfs.service: Deactivated successfully.
+[    5.433888] qemuarm64 systemd[1]: Finished Load Kernel Module configfs.
+[    5.472831] qemuarm64 systemd-journald[109]: Collecting audit messages is disabled.
+[    5.484069] qemuarm64 systemd[1]: modprobe@drm.service: Deactivated successfully.
+[    5.503749] qemuarm64 systemd[1]: Finished Load Kernel Module drm.
+[    5.522712] qemuarm64 systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[    5.535932] qemuarm64 systemd[1]: Finished Load Kernel Module fuse.
+[    5.559760] qemuarm64 systemd[1]: Finished Generate network units from Kernel command line.
+[    5.567956] qemuarm64 systemd[1]: Reached target Preparation for Network.
+[    5.581089] qemuarm64 systemd[1]: FUSE Control File System was skipped because of an unmet condition check (ConditionPathExists=/sys/fs/fuse/connections).
+[    5.584676] qemuarm64 systemd[1]: Kernel Configuration File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/config).
+[    5.616418] qemuarm64 kernel: EXT4-fs (vda): re-mounted 961fca2f-1049-41bf-a945-f8d1b7f955c0.
+[    5.715658] qemuarm64 systemd[1]: Finished Remount Root and Kernel File Systems.
+[    5.730713] qemuarm64 systemd[1]: Rebuild Hardware Database was skipped because no trigger condition checks were met.
+[    5.860268] qemuarm64 systemd[1]: Finished Create Static Device Nodes in /dev gracefully.
+[    5.863259] qemuarm64 systemd-journald[109]: Journal started
+[    5.865346] qemuarm64 systemd-journald[109]: Runtime Journal (/run/log/journal/9032c220bfc1451b8449c7c8ba94ee2a) is 8.0M, max 64.0M, 56.0M free.
+[    5.941503] qemuarm64 systemd[1]: Starting Create System Users...
+[    5.952254] qemuarm64 systemd[1]: Started Journal Service.
+[    5.921847] qemuarm64 systemd[1]: Finished Apply Kernel Variables.
+[    6.079200] qemuarm64 systemd[1]: Starting Flush Journal to Persistent Storage...
+[    6.377357] qemuarm64 systemd-journald[109]: Runtime Journal (/run/log/journal/9032c220bfc1451b8449c7c8ba94ee2a) is 8.0M, max 64.0M, 56.0M free.
+[    6.441212] qemuarm64 systemd-journald[109]: Received client request to flush runtime journal.
+[    6.404656] qemuarm64 systemd[1]: Starting User Database Manager...
+[    6.441879] qemuarm64 systemd[1]: Finished Flush Journal to Persistent Storage.
+[    6.893017] qemuarm64 systemd[1]: Finished Coldplug All udev Devices.
+[    6.952568] qemuarm64 systemd[1]: Starting Wait for udev To Complete Device Initialization...
+[    6.983712] qemuarm64 systemd[1]: Started User Database Manager.
+[    7.209341] qemuarm64 systemd[1]: Finished Create System Users.
+[    7.289072] qemuarm64 systemd[1]: Starting Create Static Device Nodes in /dev...
+[    7.362520] qemuarm64 udevadm[148]: systemd-udev-settle.service is deprecated. Please fix isp-channel.service not to pull it in.
+[    7.638274] qemuarm64 systemd[1]: Finished Create Static Device Nodes in /dev.
+[    7.646007] qemuarm64 systemd[1]: Reached target Preparation for Local File Systems.
+[    7.704835] qemuarm64 systemd[1]: Mounting /var/volatile...
+[    7.788749] qemuarm64 systemd[1]: Starting Rule-based Manager for Device Events and Files...
+[    7.913053] qemuarm64 systemd[1]: Mounted /var/volatile.
+[    7.919358] qemuarm64 systemd[1]: Bind mount volatile /var/cache was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/var/cache).
+[    7.921609] qemuarm64 systemd[1]: Bind mount volatile /var/lib was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/var/lib).
+[    7.961520] qemuarm64 systemd[1]: Starting Load/Save OS Random Seed...
+[    7.964805] qemuarm64 systemd[1]: Bind mount volatile /var/spool was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/var/spool).
+[    7.965744] qemuarm64 systemd[1]: Bind mount volatile /srv was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/srv).
+[    7.966479] qemuarm64 systemd[1]: Reached target Local File Systems.
+[    7.984527] qemuarm64 systemd[1]: Starting Rebuild Dynamic Linker Cache...
+[    7.999142] qemuarm64 systemd[1]: Starting Create System Files and Directories...
+[    8.422066] qemuarm64 systemd[1]: Finished Load/Save OS Random Seed.
+[    8.443366] qemuarm64 systemd-udevd[158]: Using default interface naming scheme 'v255'.
+[    8.490562] qemuarm64 systemd[1]: First Boot Complete was skipped because of an unmet condition check (ConditionFirstBoot=yes).
+[    8.506875] qemuarm64 systemd[1]: Commit a transient machine-id on disk was skipped because of an unmet condition check (ConditionPathIsMountPoint=/etc/machine-id).
+[    8.639249] qemuarm64 systemd-tmpfiles[162]: ]8;;file://qemuarm64/usr/lib/tmpfiles.d/legacy.conf/usr/lib/tmpfiles.d/legacy.conf]8;;:13: Duplicate line for path "/run/lock", ignoring.
+[    8.681663] qemuarm64 systemd-tmpfiles[162]: ]8;;file://qemuarm64/usr/lib/tmpfiles.d/tmp.conf/usr/lib/tmpfiles.d/tmp.conf]8;;:12: Duplicate line for path "/var/tmp", ignoring.
+[    8.683057] qemuarm64 systemd-tmpfiles[162]: ]8;;file://qemuarm64/usr/lib/tmpfiles.d/var.conf/usr/lib/tmpfiles.d/var.conf]8;;:14: Duplicate line for path "/var/log", ignoring.
+[    8.823328] qemuarm64 systemd[1]: Started Rule-based Manager for Device Events and Files.
+[    8.963723] qemuarm64 systemd[1]: Starting Network Configuration...
+[    9.000583] qemuarm64 systemd[1]: Finished Rebuild Dynamic Linker Cache.
+[    9.017775] qemuarm64 systemd[1]: Finished Create System Files and Directories.
+[    9.144986] qemuarm64 systemd[1]: Starting Rebuild Journal Catalog...
+[    9.253083] qemuarm64 systemd[1]: Starting Network Name Resolution...
+[    9.439428] qemuarm64 systemd[1]: Starting Network Time Synchronization...
+[    9.569067] qemuarm64 systemd[1]: Starting Record System Boot/Shutdown in UTMP...
+[    9.727905] qemuarm64 kernel: virtio_net virtio1 enp0s2: renamed from eth0 (while UP)
+[   10.495992] qemuarm64 systemd[1]: Finished Record System Boot/Shutdown in UTMP.
+[   10.624818] qemuarm64 systemd[1]: Finished Rebuild Journal Catalog.
+[   10.715879] qemuarm64 systemd[1]: Starting Update is Completed...
+[   10.861261] qemuarm64 systemd[1]: Starting Virtual Console Setup...
+[   11.010276] qemuarm64 systemd[1]: Finished Wait for udev To Complete Device Initialization.
+[   11.137623] qemuarm64 systemd-networkd[168]: lo: Link UP
+[   11.147989] qemuarm64 systemd-networkd[168]: lo: Gained carrier
+[   11.163368] qemuarm64 systemd-networkd[168]: enp0s2: Link UP
+[   11.164836] qemuarm64 systemd-networkd[168]: enp0s2: Gained carrier
+[   11.239147] qemuarm64 systemd[1]: Finished Update is Completed.
+[   11.244636] qemuarm64 systemd-networkd[168]: enp0s2: Gained IPv6LL
+[   11.259031] qemuarm64 systemd-networkd[168]: Enumeration completed
+[   11.273565] qemuarm64 systemd[1]: Started Network Configuration.
+[   11.296575] qemuarm64 systemd-networkd[168]: enp0s2: Configuring with /run/systemd/network/71-default.network.
+[   11.379198] qemuarm64 systemd-resolved[180]: Positive Trust Anchors:
+[   11.390915] qemuarm64 systemd-resolved[180]: . IN DS 20326 8 2 e06d44b80b8f1d39a95c0b0d7c65d08458e880409bbc683457104237c7f8ec8d
+[   11.391752] qemuarm64 systemd-resolved[180]: . IN DS 38696 8 2 683d2d0acb8c9b712a1948b27f741219298d0a450d612c483af444a4c0fb2b16
+[   11.394464] qemuarm64 systemd-resolved[180]: Negative trust anchors: home.arpa 10.in-addr.arpa 16.172.in-addr.arpa 17.172.in-addr.arpa 18.172.in-addr.arpa 19.172.in-addr.arpa 20.172.in-addr.arpa 21.172.in-addr.arpa 22.172.in-addr.arpa 23.172.in-addr.arpa 24.172.in-addr.arpa 25.172.in-addr.arpa 26.172.in-addr.arpa 27.172.in-addr.arpa 28.172.in-addr.arpa 29.172.in-addr.arpa 30.172.in-addr.arpa 31.172.in-addr.arpa 170.0.0.192.in-addr.arpa 171.0.0.192.in-addr.arpa 168.192.in-addr.arpa d.f.ip6.arpa ipv4only.arpa resolver.arpa corp home internal intranet lan local private test
+[   11.449858] qemuarm64 systemd-resolved[180]: Using system hostname 'qemuarm64'.
+[   11.471917] qemuarm64 systemd[1]: Started Network Time Synchronization.
+[   11.488554] qemuarm64 systemd[1]: Reached target System Time Set.
+[   11.580500] qemuarm64 systemd[1]: Started Network Name Resolution.
+[   11.590692] qemuarm64 systemd[1]: Reached target Network.
+[   11.591788] qemuarm64 systemd[1]: Reached target Host and Network Name Lookups.
+[   11.592594] qemuarm64 systemd-networkd[168]: enp0s2: DHCPv4 address 10.0.2.15/24, gateway 10.0.2.2 acquired from 10.0.2.2
+[   11.708887] qemuarm64 systemd-timesyncd[181]: Network configuration changed, trying to establish connection.
+[   11.722420] qemuarm64 systemd-timesyncd[181]: Network configuration changed, trying to establish connection.
+[   11.949269] qemuarm64 systemd[1]: Finished Virtual Console Setup.
+[   11.960949] qemuarm64 systemd[1]: Reached target System Initialization.
+[   11.962263] qemuarm64 systemd[1]: Started Daily Cleanup of Temporary Directories.
+[   11.965708] qemuarm64 systemd[1]: Reached target Timer Units.
+[   11.973820] qemuarm64 systemd[1]: Listening on D-Bus System Message Bus Socket.
+[   12.053686] qemuarm64 systemd[1]: Listening on dropbear.socket.
+[   12.058101] qemuarm64 systemd[1]: Reached target Socket Units.
+[   12.061488] qemuarm64 systemd[1]: Reached target Basic System.
+[   12.129207] qemuarm64 systemd[1]: Started Kernel Logging Service.
+[   12.187896] qemuarm64 systemd[1]: Started System Logging Service.
+[   12.269937] qemuarm64 systemd[1]: Starting D-Bus System Message Bus...
+[   12.295150] qemuarm64 systemd[1]: Started Getty on tty1.
+[   12.340481] qemuarm64 kernel[203]: klogd started: BusyBox v1.36.1 ()
+[   12.354703] qemuarm64 kernel[203]: [    0.000000] Booting Linux on physical CPU 0x0000000000 [0x411fd070]
+[   12.355428] qemuarm64 (syslogd)[204]: busybox-syslog.service: Referenced but unset environment variable evaluates to an empty string: OPTIONS
+[   12.370409] qemuarm64 kernel[203]: [    0.000000] Linux version 6.6.151-yocto-standard (oe-user@oe-host) (aarch64-poky-linux-gcc (GCC) 13.5.0, GNU ld (GNU Binutils) 2.42.0.20240723) #1 SMP PREEMPT Tue Aug 18 18:50:33 UTC 2026
+[   12.371545] qemuarm64 kernel[203]: [    0.000000] random: crng init done
+[   12.372677] qemuarm64 kernel[203]: [    0.000000] Machine model: linux,dummy-virt
+[   12.374361] qemuarm64 kernel[203]: [    0.000000] efi: UEFI not found.
+[   12.374973] qemuarm64 kernel[203]: [    0.000000] Zone ranges:
+[   12.375375] qemuarm64 kernel[203]: [    0.000000]   DMA      [mem 0x0000000040000000-0x000000007fffffff]
+[   12.381018] qemuarm64 kernel[203]: [    0.000000]   DMA32    empty
+[   12.381633] qemuarm64 kernel[203]: [    0.000000]   Normal   empty
+[   12.382213] qemuarm64 kernel[203]: [    0.000000] Movable zone start for each node
+[   12.382732] qemuarm64 kernel[203]: [    0.000000] Early memory node ranges
+[   12.383065] qemuarm64 kernel[203]: [    0.000000]   node   0: [mem 0x0000000040000000-0x000000007fffffff]
+[   12.383439] qemuarm64 kernel[203]: [    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000007fffffff]
+[   12.383860] qemuarm64 kernel[203]: [    0.000000] psci: probing for conduit method from DT.
+[   12.384204] qemuarm64 kernel[203]: [    0.000000] psci: PSCIv1.1 detected in firmware.
+[   12.384518] qemuarm64 kernel[203]: [    0.000000] psci: Using standard PSCI v0.2 function IDs
+[   12.384780] qemuarm64 kernel[203]: [    0.000000] psci: Trusted OS migration not required
+[   12.392085] qemuarm64 kernel[203]: [    0.000000] psci: SMC Calling Convention v1.0
+[   12.397472] qemuarm64 kernel[203]: [    0.000000] percpu: Embedded 27 pages/cpu s73704 r8192 d28696 u110592
+[   12.398165] qemuarm64 kernel[203]: [    0.000000] pcpu-alloc: s73704 r8192 d28696 u110592 alloc=27*4096
+[   12.398695] qemuarm64 kernel[203]: [    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3
+[   12.399865] qemuarm64 systemd[1]: Starting Camera ISP channel (libcamera, software ISP, H.264)...
+[   12.411445] qemuarm64 kernel[203]: [    0.000000] Detected PIPT I-cache on CPU0
+[   12.412026] qemuarm64 systemd[1]: Serial Getty on hvc0 was skipped because of an unmet condition check (ConditionPathExists=/dev/hvc0).
+[   12.417291] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: Spectre-v2
+[   12.418510] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: Spectre-v4
+[   12.418881] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: Spectre-BHB
+[   12.419241] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: ARM erratum 1742098
+[   12.419604] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: ARM erratum 832075
+[   12.419867] qemuarm64 kernel[203]: [    0.000000] CPU features: detected: ARM errata 1165522, 1319367, or 1530923
+[   12.422014] qemuarm64 kernel[203]: [    0.000000] alternatives: applying boot alternatives
+[   12.422733] qemuarm64 kernel[203]: [    0.000000] Kernel command line: root=/dev/vda rw console=ttyAMA0 ip=dhcp
+[   12.423088] qemuarm64 kernel[203]: [    0.000000] Dentry cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[   12.423462] qemuarm64 kernel[203]: [    0.000000] Inode-cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[   12.423815] qemuarm64 kernel[203]: [    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 258048
+[   12.424428] qemuarm64 kernel[203]: [    0.000000] mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+[   12.424912] qemuarm64 kernel[203]: [    0.000000] software IO TLB: area num 4.
+[   12.425217] qemuarm64 kernel[203]: [    0.000000] software IO TLB: mapped [mem 0x000000007a980000-0x000000007e980000] (64MB)
+[   12.425520] qemuarm64 kernel[203]: [    0.000000] Memory: 934828K/1048576K available (13184K kernel code, 2000K rwdata, 3132K rodata, 4544K init, 556K bss, 113748K reserved, 0K cma-reserved)
+[   12.425790] qemuarm64 kernel[203]: [    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[   12.426101] qemuarm64 kernel[203]: [    0.000000] ftrace: allocating 40423 entries in 158 pages
+[   12.426496] qemuarm64 kernel[203]: [    0.000000] ftrace: allocated 158 pages with 5 groups
+[   12.426802] qemuarm64 kernel[203]: [    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[   12.427164] qemuarm64 kernel[203]: [    0.000000] rcu:         RCU event tracing is enabled.
+[   12.427603] qemuarm64 kernel[203]: [    0.000000] rcu:         RCU restricting CPUs from NR_CPUS=256 to nr_cpu_ids=4.
+[   12.427911] qemuarm64 kernel[203]: [    0.000000]         Trampoline variant of Tasks RCU enabled.
+[   12.428512] qemuarm64 kernel[203]: [    0.000000]         Rude variant of Tasks RCU enabled.
+[   12.428940] qemuarm64 kernel[203]: [    0.000000]         Tracing variant of Tasks RCU enabled.
+[   12.429214] qemuarm64 kernel[203]: [    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[   12.429655] qemuarm64 kernel[203]: [    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[   12.429971] qemuarm64 kernel[203]: [    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[   12.430331] qemuarm64 kernel[203]: [    0.000000] Root IRQ handler: gic_handle_irq
+[   12.430605] qemuarm64 kernel[203]: [    0.000000] GICv2m: range[mem 0x08020000-0x08020fff], SPI[80:143]
+[   12.430901] qemuarm64 kernel[203]: [    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+[   12.431263] qemuarm64 kernel[203]: [    0.000000] arch_timer: cp15 timer(s) running at 62.50MHz (virt).
+[   12.431718] qemuarm64 kernel[203]: [    0.000000] clocksource: arch_sys_counter: mask: 0x1ffffffffffffff max_cycles: 0x1cd42e208c, max_idle_ns: 881590405314 ns
+[   12.432012] qemuarm64 kernel[203]: [    0.000085] sched_clock: 57 bits at 63MHz, resolution 16ns, wraps every 4398046511096ns
+[   12.432858] qemuarm64 kernel[203]: [    0.009924] kfence: initialized - using 2097152 bytes for 255 objects at 0x(____ptrval____)-0x(____ptrval____)
+[   12.433574] qemuarm64 kernel[203]: [    0.017464] Console: colour dummy device 80x25
+[   12.434007] qemuarm64 kernel[203]: [    0.019064] Calibrating delay loop (skipped), value calculated using timer frequency.. 125.00 BogoMIPS (lpj=250000)
+[   12.434529] qemuarm64 kernel[203]: [    0.019328] pid_max: default: 32768 minimum: 301
+[   12.434892] qemuarm64 kernel[203]: [    0.020842] LSM: initializing lsm=capability,landlock,integrity
+[   12.435472] qemuarm64 kernel[203]: [    0.021344] landlock: Up and running.
+[   12.435812] qemuarm64 kernel[203]: [    0.024750] Mount-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[   12.436499] qemuarm64 kernel[203]: [    0.024813] Mountpoint-cache hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[   12.436898] qemuarm64 kernel[203]: [    0.055202] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[   12.437274] qemuarm64 kernel[203]: [    0.067027] RCU Tasks: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[   12.437617] qemuarm64 kernel[203]: [    0.067662] RCU Tasks Rude: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[   12.438024] qemuarm64 kernel[203]: [    0.067812] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+[   12.438337] qemuarm64 kernel[203]: [    0.069227] rcu: Hierarchical SRCU implementation.
+[   12.438697] qemuarm64 kernel[203]: [    0.069551] rcu:         Max phase no-delay instances is 1000.
+[   12.439040] qemuarm64 kernel[203]: [    0.073950] EFI services will not be available.
+[   12.439281] qemuarm64 kernel[203]: [    0.076313] smp: Bringing up secondary CPUs ...
+[   12.439593] qemuarm64 kernel[203]: [    0.083336] Detected PIPT I-cache on CPU1
+[   12.440614] qemuarm64 kernel[203]: [    0.084972] CPU1: Booted secondary processor 0x0000000001 [0x411fd070]
+[   12.441648] qemuarm64 kernel[203]: [    0.091639] Detected PIPT I-cache on CPU2
+[   12.442005] qemuarm64 kernel[203]: [    0.092037] CPU2: Booted secondary processor 0x0000000002 [0x411fd070]
+[   12.442254] qemuarm64 kernel[203]: [    0.094211] Detected PIPT I-cache on CPU3
+[   12.451315] qemuarm64 kernel[203]: [    0.094615] CPU3: Booted secondary processor 0x0000000003 [0x411fd070]
+[   12.453007] qemuarm64 kernel[203]: [    0.096363] smp: Brought up 1 node, 4 CPUs
+[   12.455457] qemuarm64 kernel[203]: [    0.096419] SMP: Total of 4 processors activated.
+[   12.455962] qemuarm64 kernel[203]: [    0.096528] CPU features: detected: 32-bit EL0 Support
+[   12.456894] qemuarm64 kernel[203]: [    0.096587] CPU features: detected: CRC32 instructions
+[   12.457376] qemuarm64 kernel[203]: [    0.099781] CPU: All CPU(s) started at EL1
+[   12.457867] qemuarm64 kernel[203]: [    0.099812] alternatives: applying system-wide alternatives
+[   12.458579] qemuarm64 kernel[203]: [    0.129479] devtmpfs: initialized
+[   12.459234] qemuarm64 kernel[203]: [    0.141572] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[   12.459777] qemuarm64 kernel[203]: [    0.141820] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[   12.461041] qemuarm64 kernel[203]: [    0.154977] DMI not present or invalid.
+[   12.461656] qemuarm64 kernel[203]: [    0.168308] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[   12.462180] qemuarm64 kernel[203]: [    0.178412] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[   12.463343] qemuarm64 kernel[203]: [    0.178673] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[   12.463939] qemuarm64 kernel[203]: [    0.178792] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[   12.465327] qemuarm64 kernel[203]: [    0.183653] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[   12.465855] qemuarm64 kernel[203]: [    0.185359] ASID allocator initialised with 65536 entries
+[   12.466162] qemuarm64 kernel[203]: [    0.185882] Serial: AMBA PL011 UART driver
+[   12.466688] qemuarm64 kernel[203]: [    0.218610] 9000000.pl011: ttyAMA0 at MMIO 0x9000000 (irq = 13, base_baud = 0) is a PL011 rev1
+[   12.467031] qemuarm64 kernel[203]: [    0.221330] printk: console [ttyAMA0] enabled
+[   12.467560] qemuarm64 kernel[203]: [    0.279049] Modules: 26864 pages in range for non-PLT usage
+[   12.467961] qemuarm64 kernel[203]: [    0.279184] Modules: 518384 pages in range for PLT usage
+[   12.468330] qemuarm64 kernel[203]: [    0.367968] raid6: neonx8   gen()  3700 MB/s
+[   12.468598] qemuarm64 kernel[203]: [    0.438394] raid6: neonx4   gen()  3175 MB/s
+[   12.469352] qemuarm64 kernel[203]: [    0.509464] raid6: neonx2   gen()  2081 MB/s
+[   12.469766] qemuarm64 kernel[203]: [    0.580226] raid6: neonx1   gen()   982 MB/s
+[   12.471670] qemuarm64 kernel[203]: [    0.650834] raid6: int64x8  gen()  1162 MB/s
+[   12.472639] qemuarm64 kernel[203]: [    0.721202] raid6: int64x4  gen()  2744 MB/s
+[   12.473049] qemuarm64 kernel[203]: [    0.792427] raid6: int64x2  gen()  2359 MB/s
+[   12.473419] qemuarm64 kernel[203]: [    0.862559] raid6: int64x1  gen()  1790 MB/s
+[   12.473738] qemuarm64 kernel[203]: [    0.863085] raid6: using algorithm neonx8 gen() 3700 MB/s
+[   12.474155] qemuarm64 kernel[203]: [    0.934589] raid6: .... xor() 1504 MB/s, rmw enabled
+[   12.474466] qemuarm64 kernel[203]: [    0.934989] raid6: using neon recovery algorithm
+[   12.474951] qemuarm64 kernel[203]: [    0.937600] iommu: Default domain type: Translated
+[   12.476062] qemuarm64 systemd[1]: Started Serial Getty on ttyAMA0.
+[   12.477432] qemuarm64 kernel[203]: [    0.937768] iommu: DMA domain TLB invalidation policy: strict mode
+[   12.478185] qemuarm64 kernel[203]: [    0.939921] SCSI subsystem initialized
+[   12.479335] qemuarm64 kernel[203]: [    0.941052] usbcore: registered new interface driver usbfs
+[   12.479743] qemuarm64 kernel[203]: [    0.941560] usbcore: registered new interface driver hub
+[   12.480674] qemuarm64 kernel[203]: [    0.941840] usbcore: registered new device driver usb
+[   12.481203] qemuarm64 kernel[203]: [    0.942444] pps_core: LinuxPPS API ver. 1 registered
+[   12.481536] qemuarm64 kernel[203]: [    0.943095] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[   12.481883] qemuarm64 kernel[203]: [    0.943932] PTP clock support registered
+[   12.482166] qemuarm64 kernel[203]: [    0.961501] vgaarb: loaded
+[   12.482591] qemuarm64 kernel[203]: [    0.963312] clocksource: Switched to clocksource arch_sys_counter
+[   12.482892] qemuarm64 kernel[203]: [    1.019780] NET: Registered PF_INET protocol family
+[   12.483212] qemuarm64 systemd[1]: Reached target Login Prompts.
+[   12.483858] qemuarm64 kernel[203]: [    1.022516] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[   12.484724] qemuarm64 kernel[203]: [    1.036736] tcp_listen_portaddr_hash hash table entries: 512 (order: 1, 8192 bytes, linear)
+[   12.485234] qemuarm64 kernel[203]: [    1.037399] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[   12.485704] qemuarm64 kernel[203]: [    1.037789] TCP established hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[   12.486021] qemuarm64 kernel[203]: [    1.038373] TCP bind hash table entries: 8192 (order: 6, 262144 bytes, linear)
+[   12.486244] qemuarm64 kernel[203]: [    1.039755] TCP: Hash tables configured (established 8192 bind 8192)
+[   12.488654] qemuarm64 kernel[203]: [    1.041944] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[   12.489421] qemuarm64 kernel[203]: [    1.042415] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[   12.490045] qemuarm64 kernel[203]: [    1.044556] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[   12.490468] qemuarm64 kernel[203]: [    1.050823] RPC: Registered named UNIX socket transport module.
+[   12.491058] qemuarm64 kernel[203]: [    1.052558] RPC: Registered udp transport module.
+[   12.491710] qemuarm64 kernel[203]: [    1.052906] RPC: Registered tcp transport module.
+[   12.495283] qemuarm64 kernel[203]: [    1.053420] RPC: Registered tcp-with-tls transport module.
+[   12.495960] qemuarm64 kernel[203]: [    1.053955] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[   12.496888] qemuarm64 kernel[203]: [    1.055408] PCI: CLS 0 bytes, default 64
+[   12.497381] qemuarm64 kernel[203]: [    1.072069] workingset: timestamp_bits=46 max_order=18 bucket_order=0
+[   12.497725] qemuarm64 kernel[203]: [    1.079998] NFS: Registering the id_resolver key type
+[   12.498164] qemuarm64 kernel[203]: [    1.082050] Key type id_resolver registered
+[   12.498509] qemuarm64 kernel[203]: [    1.082279] Key type id_legacy registered
+[   12.498959] qemuarm64 kernel[203]: [    1.092888] Key type cifs.idmap registered
+[   12.499375] qemuarm64 kernel[203]: [    1.162573] xor: measuring software checksum speed
+[   12.499772] qemuarm64 kernel[203]: [    1.164764]    8regs           :  1743 MB/sec
+[   12.500593] qemuarm64 kernel[203]: [    1.166437]    32regs          :  2336 MB/sec
+[   12.501157] qemuarm64 kernel[203]: [    1.168475]    arm64_neon      :  1792 MB/sec
+[   12.501661] qemuarm64 kernel[203]: [    1.168643] xor: using function: 32regs (2336 MB/sec)
+[   12.502382] qemuarm64 kernel[203]: [    1.169612] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 249)
+[   12.502777] qemuarm64 kernel[203]: [    1.170302] io scheduler mq-deadline registered
+[   12.503223] qemuarm64 kernel[203]: [    1.170697] io scheduler kyber registered
+[   12.503642] qemuarm64 kernel[203]: [    1.176768] pci-host-generic 4010000000.pcie: host bridge /pcie@10000000 ranges:
+[   12.503994] qemuarm64 kernel[203]: [    1.178214] pci-host-generic 4010000000.pcie:       IO 0x003eff0000..0x003effffff -> 0x0000000000
+[   12.504955] qemuarm64 kernel[203]: [    1.179699] pci-host-generic 4010000000.pcie:      MEM 0x0010000000..0x003efeffff -> 0x0010000000
+[   12.505438] qemuarm64 kernel[203]: [    1.180202] pci-host-generic 4010000000.pcie:      MEM 0x8000000000..0xffffffffff -> 0x8000000000
+[   12.505890] qemuarm64 kernel[203]: [    1.181642] pci-host-generic 4010000000.pcie: Memory resource size exceeds max for 32 bits
+[   12.506237] qemuarm64 kernel[203]: [    1.183316] pci-host-generic 4010000000.pcie: ECAM at [mem 0x4010000000-0x401fffffff] for [bus 00-ff]
+[   12.506704] qemuarm64 kernel[203]: [    1.186180] pci-host-generic 4010000000.pcie: PCI host bridge to bus 0000:00
+[   12.507026] qemuarm64 kernel[203]: [    1.186744] pci_bus 0000:00: root bus resource [bus 00-ff]
+[   12.507736] qemuarm64 kernel[203]: [    1.187707] pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+[   12.508814] qemuarm64 kernel[203]: [    1.188178] pci_bus 0000:00: root bus resource [mem 0x10000000-0x3efeffff]
+[   12.509434] qemuarm64 kernel[203]: [    1.188791] pci_bus 0000:00: root bus resource [mem 0x8000000000-0xffffffffff]
+[   12.510195] qemuarm64 kernel[203]: [    1.191848] pci 0000:00:00.0: [1b36:0008] type 00 class 0x060000
+[   12.510627] qemuarm64 kernel[203]: [    1.197090] pci 0000:00:01.0: [1af4:1001] type 00 class 0x010000
+[   12.511142] qemuarm64 kernel[203]: [    1.197723] pci 0000:00:01.0: BAR 0 [io  0x0000-0x007f]
+[   12.511462] qemuarm64 kernel[203]: [    1.198342] pci 0000:00:01.0: BAR 1 [mem 0x00000000-0x00000fff]
+[   12.512472] qemuarm64 kernel[203]: [    1.198670] pci 0000:00:01.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[   12.513486] qemuarm64 kernel[203]: [    1.200083] pci 0000:00:02.0: [1af4:1000] type 00 class 0x020000
+[   12.514408] qemuarm64 kernel[203]: [    1.200380] pci 0000:00:02.0: BAR 0 [io  0x0000-0x001f]
+[   12.514931] qemuarm64 kernel[203]: [    1.200875] pci 0000:00:02.0: BAR 1 [mem 0x00000000-0x00000fff]
+[   12.521662] qemuarm64 kernel[203]: [    1.201684] pci 0000:00:02.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[   12.523407] qemuarm64 kernel[203]: [    1.203570] pci 0000:00:03.0: [1af4:1005] type 00 class 0x00ff00
+[   12.524970] qemuarm64 kernel[203]: [    1.204201] pci 0000:00:03.0: BAR 0 [io  0x0000-0x001f]
+[   12.525784] qemuarm64 kernel[203]: [    1.204685] pci 0000:00:03.0: BAR 1 [mem 0x00000000-0x00000fff]
+[   12.527224] qemuarm64 kernel[203]: [    1.205359] pci 0000:00:03.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+[   12.529140] qemuarm64 kernel[203]: [    1.210065] pci 0000:00:01.0: BAR 4 [mem 0x8000000000-0x8000003fff 64bit pref]: assigned
+[   12.529732] qemuarm64 kernel[203]: [    1.211892] pci 0000:00:02.0: BAR 4 [mem 0x8000004000-0x8000007fff 64bit pref]: assigned
+[   12.530289] qemuarm64 kernel[203]: [    1.212686] pci 0000:00:03.0: BAR 4 [mem 0x8000008000-0x800000bfff 64bit pref]: assigned
+[   12.531129] qemuarm64 kernel[203]: [    1.213315] pci 0000:00:01.0: BAR 1 [mem 0x10000000-0x10000fff]: assigned
+[   12.532004] qemuarm64 kernel[203]: [    1.214179] pci 0000:00:02.0: BAR 1 [mem 0x10001000-0x10001fff]: assigned
+[   12.534678] qemuarm64 kernel[203]: [    1.214921] pci 0000:00:03.0: BAR 1 [mem 0x10002000-0x10002fff]: assigned
+[   12.535099] qemuarm64 kernel[203]: [    1.216522] pci 0000:00:01.0: BAR 0 [io  0x1000-0x107f]: assigned
+[   12.535458] qemuarm64 kernel[203]: [    1.217259] pci 0000:00:02.0: BAR 0 [io  0x1080-0x109f]: assigned
+[   12.535877] qemuarm64 kernel[203]: [    1.217721] pci 0000:00:03.0: BAR 0 [io  0x10a0-0x10bf]: assigned
+[   12.536615] qemuarm64 kernel[203]: [    1.225112] virtio-pci 0000:00:01.0: enabling device (0000 -> 0003)
+[   12.537154] qemuarm64 kernel[203]: [    1.233563] virtio-pci 0000:00:02.0: enabling device (0000 -> 0003)
+[   12.538165] qemuarm64 kernel[203]: [    1.237589] virtio-pci 0000:00:03.0: enabling device (0000 -> 0003)
+[   12.538711] qemuarm64 kernel[203]: [    1.312337] brd: module loaded
+[   12.539541] qemuarm64 kernel[203]: [    1.314016] virtio_blk virtio0: 4/0/0 default/read/poll queues
+[   12.539948] qemuarm64 kernel[203]: [    1.323327] virtio_blk virtio0: [vda] 1382756 512-byte logical blocks (708 MB/675 MiB)
+[   12.540351] qemuarm64 kernel[203]: [    1.350773] rtc-pl031 9010000.pl031: registered as rtc0
+[   12.540623] qemuarm64 kernel[203]: [    1.352495] rtc-pl031 9010000.pl031: setting system clock to 2026-11-24T11:23:54 UTC (1795519434)
+[   12.545532] qemuarm64 kernel[203]: [    1.356671] device-mapper: ioctl: 4.48.0-ioctl (2023-03-01) initialised: dm-devel@redhat.com
+[   12.546505] qemuarm64 kernel[203]: [    1.361336] usbcore: registered new interface driver usbhid
+[   12.547027] qemuarm64 kernel[203]: [    1.361728] usbhid: USB HID core driver
+[   12.547337] qemuarm64 kernel[203]: [    1.367549] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[   12.547887] qemuarm64 kernel[203]: [    1.369221] u32 classifier
+[   12.548745] qemuarm64 kernel[203]: [    1.369337]     input device check on
+[   12.549251] qemuarm64 kernel[203]: [    1.369654]     Actions configured
+[   12.549606] qemuarm64 kernel[203]: [    1.371725] NET: Registered PF_INET6 protocol family
+[   12.549856] qemuarm64 kernel[203]: [    1.383958] Segment Routing with IPv6
+[   12.550272] qemuarm64 kernel[203]: [    1.384517] In-situ OAM (IOAM) with IPv6
+[   12.550631] qemuarm64 kernel[203]: [    1.385749] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[   12.551144] qemuarm64 kernel[203]: [    1.389318] NET: Registered PF_PACKET protocol family
+[   12.552450] qemuarm64 kernel[203]: [    1.392392] Bridge firewalling registered
+[   12.552964] qemuarm64 kernel[203]: [    1.393760] Key type dns_resolver registered
+[   12.553233] qemuarm64 kernel[203]: [    1.394787] NET: Registered PF_VSOCK protocol family
+[   12.553537] qemuarm64 kernel[203]: [    1.410789] registered taskstats version 1
+[   12.553812] qemuarm64 kernel[203]: [    1.436977] Key type .fscrypt registered
+[   12.554059] qemuarm64 kernel[203]: [    1.437632] Key type fscrypt-provisioning registered
+[   12.554259] qemuarm64 kernel[203]: [    1.447034] Btrfs loaded, zoned=no, fsverity=no
+[   12.554771] qemuarm64 kernel[203]: [    1.480304] Key type encrypted registered
+[   12.555049] qemuarm64 kernel[203]: [    1.484904] printk: console [netcon0] enabled
+[   12.555375] qemuarm64 kernel[203]: [    1.485217] netconsole: network logging started
+[   12.555666] qemuarm64 kernel[203]: [    1.527639] Sending DHCP requests ., OK
+[   12.560547] qemuarm64 kernel[203]: [    1.544315] IP-Config: Got DHCP answer from 10.0.2.2, my address is 10.0.2.15
+[   12.561400] qemuarm64 kernel[203]: [    1.545468] IP-Config: Complete:
+[   12.561831] qemuarm64 kernel[203]: [    1.545764]      device=eth0, hwaddr=52:54:00:12:34:56, ipaddr=10.0.2.15, mask=255.255.255.0, gw=10.0.2.2
+[   12.562115] qemuarm64 kernel[203]: [    1.547620]      host=10.0.2.15, domain=, nis-domain=(none)
+[   12.562365] qemuarm64 kernel[203]: [    1.548231]      bootserver=10.0.2.2, rootserver=10.0.2.2, rootpath=
+[   12.562621] qemuarm64 kernel[203]: [    1.548293]      nameserver0=10.0.2.3
+[   12.562834] qemuarm64 kernel[203]: [    1.556055] clk: Disabling unused clocks
+[   12.563047] qemuarm64 kernel[203]: [    1.562713] md: Waiting for all devices to be available before autodetect
+[   12.563514] qemuarm64 kernel[203]: [    1.562920] md: If you don't use raid, use raid=noautodetect
+[   12.563865] qemuarm64 kernel[203]: [    1.563730] md: Autodetecting RAID arrays.
+[   12.568715] qemuarm64 kernel[203]: [    1.564017] md: autorun ...
+[   12.569338] qemuarm64 kernel[203]: [    1.564363] md: ... autorun DONE.
+[   12.569643] qemuarm64 kernel[203]: [    1.748464] EXT4-fs (vda): mounted filesystem 961fca2f-1049-41bf-a945-f8d1b7f955c0 r/w with ordered data mode. Quota mode: disabled.
+[   12.569882] qemuarm64 kernel[203]: [    1.749928] VFS: Mounted root (ext4 filesystem) on device 253:0.
+[   12.570099] qemuarm64 kernel[203]: [    1.752962] devtmpfs: mounted
+[   12.570342] qemuarm64 kernel[203]: [    1.827493] Freeing unused kernel memory: 4544K
+[   12.570648] qemuarm64 kernel[203]: [    1.828660] Run /sbin/init as init process
+[   12.570876] qemuarm64 kernel[203]: [    1.828941]   with arguments:
+[   12.571349] qemuarm64 kernel[203]: [    1.828962]     /sbin/init
+[   12.571654] qemuarm64 kernel[203]: [    1.828978]   with environment:
+[   12.571910] qemuarm64 kernel[203]: [    1.828992]     HOME=/
+[   12.576673] qemuarm64 kernel[203]: [    1.829006]     TERM=linux
+[   12.577269] qemuarm64 kernel[203]: [    2.290700] systemd[1]: systemd 255.22^ running in system mode (-PAM -AUDIT -SELINUX -APPARMOR +IMA -SMACK +SECCOMP -GCRYPT -GNUTLS -OPENSSL +ACL +BLKID -CURL -ELFUTILS -FIDO2 -IDN2 -IDN -IPTC +KMOD -LIBCRYPTSETUP +LIBFDISK -PCRE2 -PWQUALITY -P11KIT -QRENCODE -TPM2 -BZIP2 -LZ4 -XZ -ZLIB +ZSTD -BPF_FRAMEWORK -XKBCOMMON +UTMP +SYSVINIT default-hierarchy=unified)
+[   12.577854] qemuarm64 kernel[203]: [    2.294295] systemd[1]: Detected virtualization qemu.
+[   12.578142] qemuarm64 kernel[203]: [    2.294714] systemd[1]: Detected architecture arm64.
+[   12.578411] qemuarm64 kernel[203]: [    2.314338] systemd[1]: Hostname set to <qemuarm64>.
+[   12.578653] qemuarm64 kernel[203]: [    2.321794] systemd[1]: Initializing machine ID from random generator.
+[   12.578981] qemuarm64 kernel[203]: [    4.008555] systemd[1]: Queued start job for default target Multi-User System.
+[   12.579236] qemuarm64 kernel[203]: [    4.147448] systemd[1]: Created slice Slice /system/getty.
+[   12.579520] qemuarm64 kernel[203]: [    4.157724] systemd[1]: Created slice Slice /system/modprobe.
+[   12.579736] qemuarm64 kernel[203]: [    4.163756] systemd[1]: Created slice Slice /system/serial-getty.
+[   12.579968] qemuarm64 kernel[203]: [    4.168255] systemd[1]: Created slice User and Session Slice.
+[   12.585204] qemuarm64 kernel[203]: [    4.172559] systemd[1]: Started Dispatch Password Requests to Console Directory Watch.
+[   12.585828] qemuarm64 kernel[203]: [    4.175679] systemd[1]: Started Forward Password Requests to Wall Directory Watch.
+[   12.586152] qemuarm64 kernel[203]: [    4.177572] systemd[1]: Reached target Path Units.
+[   12.586614] qemuarm64 kernel[203]: [    4.178772] systemd[1]: Reached target Remote File Systems.
+[   12.586970] qemuarm64 kernel[203]: [    4.182015] systemd[1]: Reached target Slice Units.
+[   12.587394] qemuarm64 kernel[203]: [    4.183921] systemd[1]: Reached target Swaps.
+[   12.587860] qemuarm64 kernel[203]: [    4.191544] systemd[1]: Listening on Syslog Socket.
+[   12.593055] qemuarm64 kernel[203]: [    4.194558] systemd[1]: Listening on initctl Compatibility Named Pipe.
+[   12.593701] qemuarm64 kernel[203]: [    4.253190] systemd[1]: Journal Audit Socket was skipped because of an unmet condition check (ConditionSecurity=audit).
+[   12.594037] qemuarm64 kernel[203]: [    4.257859] systemd[1]: Listening on Journal Socket (/dev/log).
+[   12.594277] qemuarm64 kernel[203]: [    4.261548] systemd[1]: Listening on Journal Socket.
+[   12.594651] qemuarm64 kernel[203]: [    4.265542] systemd[1]: Listening on Network Service Netlink Socket.
+[   12.595043] qemuarm64 kernel[203]: [    4.269998] systemd[1]: Listening on udev Control Socket.
+[   12.595615] qemuarm64 kernel[203]: [    4.273251] systemd[1]: Listening on udev Kernel Socket.
+[   12.596010] qemuarm64 kernel[203]: [    4.276116] systemd[1]: Listening on User Database Manager Socket.
+[   12.596834] qemuarm64 kernel[203]: [    4.280315] systemd[1]: Huge Pages File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/mm/hugepages).
+[   12.597360] qemuarm64 kernel[203]: [    4.343730] systemd[1]: Mounting POSIX Message Queue File System...
+[   12.597850] qemuarm64 kernel[203]: [    4.388202] systemd[1]: Mounting Kernel Debug File System...
+[   12.598138] qemuarm64 kernel[203]: [    4.404857] systemd[1]: Mounting Kernel Trace File System...
+[   12.598526] qemuarm64 kernel[203]: [    4.473262] systemd[1]: Mounting Temporary Directory /tmp...
+[   12.598839] qemuarm64 kernel[203]: [    4.481114] systemd[1]: Create List of Static Device Nodes was skipped because of an unmet condition check (ConditionFileNotEmpty=/lib/modules/6.6.151-yocto-standard/modules.devname).
+[   12.599262] qemuarm64 kernel[203]: [    4.545051] systemd[1]: Starting Load Kernel Module configfs...
+[   12.599718] qemuarm64 kernel[203]: [    4.626462] systemd[1]: Starting Load Kernel Module drm...
+[   12.600625] qemuarm64 kernel[203]: [    4.694967] systemd[1]: Starting Load Kernel Module fuse...
+[   12.601170] qemuarm64 kernel[203]: [    4.727753] systemd[1]: File System Check on Root Device was skipped because of an unmet condition check (ConditionPathIsReadWrite=!/).
+[   12.601528] qemuarm64 kernel[203]: [    4.821908] systemd[1]: Starting Journal Service...
+[   12.601811] qemuarm64 kernel[203]: [    4.841283] systemd[1]: Load Kernel Modules was skipped because no trigger condition checks were met.
+[   12.602037] qemuarm64 kernel[203]: [    4.928543] systemd[1]: Starting Generate network units from Kernel command line...
+[   12.602261] qemuarm64 kernel[203]: [    4.998302] systemd[1]: Starting Remount Root and Kernel File Systems...
+[   12.602596] qemuarm64 kernel[203]: [    5.057450] systemd[1]: Starting Apply Kernel Variables...
+[   12.602845] qemuarm64 kernel[203]: [    5.110038] systemd[1]: Starting Create Static Device Nodes in /dev gracefully...
+[   12.603065] qemuarm64 kernel[203]: [    5.218431] systemd[1]: Starting Coldplug All udev Devices...
+[   12.603383] qemuarm64 kernel[203]: [    5.308119] systemd[1]: Mounted POSIX Message Queue File System.
+[   12.603758] qemuarm64 kernel[203]: [    5.329160] systemd[1]: Mounted Kernel Debug File System.
+[   12.605070] qemuarm64 kernel[203]: [    5.341112] systemd[1]: Mounted Kernel Trace File System.
+[   12.605769] qemuarm64 kernel[203]: [    5.358325] systemd[1]: Mounted Temporary Directory /tmp.
+[   12.606168] qemuarm64 kernel[203]: [    5.405159] systemd[1]: modprobe@configfs.service: Deactivated successfully.
+[   12.606498] qemuarm64 kernel[203]: [    5.433888] systemd[1]: Finished Load Kernel Module configfs.
+[   12.606782] qemuarm64 kernel[203]: [    5.472831] systemd-journald[109]: Collecting audit messages is disabled.
+[   12.607111] qemuarm64 kernel[203]: [    5.484069] systemd[1]: modprobe@drm.service: Deactivated successfully.
+[   12.607452] qemuarm64 kernel[203]: [    5.503749] systemd[1]: Finished Load Kernel Module drm.
+[   12.608461] qemuarm64 kernel[203]: [    5.522712] systemd[1]: modprobe@fuse.service: Deactivated successfully.
+[   12.609273] qemuarm64 kernel[203]: [    5.535932] systemd[1]: Finished Load Kernel Module fuse.
+[   12.611972] qemuarm64 kernel[203]: [    5.559760] systemd[1]: Finished Generate network units from Kernel command line.
+[   12.613386] qemuarm64 kernel[203]: [    5.567956] systemd[1]: Reached target Preparation for Network.
+[   12.614034] qemuarm64 kernel[203]: [    5.581089] systemd[1]: FUSE Control File System was skipped because of an unmet condition check (ConditionPathExists=/sys/fs/fuse/connections).
+[   12.614622] qemuarm64 kernel[203]: [    5.584676] systemd[1]: Kernel Configuration File System was skipped because of an unmet condition check (ConditionPathExists=/sys/kernel/config).
+[   12.615102] qemuarm64 kernel[203]: [    5.616418] EXT4-fs (vda): re-mounted 961fca2f-1049-41bf-a945-f8d1b7f955c0.
+[   12.616031] qemuarm64 kernel[203]: [    5.715658] systemd[1]: Finished Remount Root and Kernel File Systems.
+[   12.616937] qemuarm64 kernel[203]: [    5.730713] systemd[1]: Rebuild Hardware Database was skipped because no trigger condition checks were met.
+[   12.617446] qemuarm64 kernel[203]: [    5.860268] systemd[1]: Finished Create Static Device Nodes in /dev gracefully.
+[   12.617891] qemuarm64 kernel[203]: [    5.941503] systemd[1]: Starting Create System Users...
+[   12.618227] qemuarm64 kernel[203]: [    5.952254] systemd[1]: Started Journal Service.
+[   12.618653] qemuarm64 kernel[203]: [    6.441212] systemd-journald[109]: Received client request to flush runtime journal.
+[   12.618942] qemuarm64 kernel[203]: [    9.727905] virtio_net virtio1 enp0s2: renamed from eth0 (while UP)
+[   12.664827] qemuarm64 systemd[1]: Starting User Login Management...
+[   12.816481] qemuarm64 systemd[1]: Started D-Bus System Message Bus.
+[   12.874099] qemuarm64 systemd-timesyncd[181]: Network configuration changed, trying to establish connection.
+[   12.910930] qemuarm64 systemd[1]: Started Camera ISP channel (libcamera, software ISP, H.264).
+[   13.181431] qemuarm64 isp-channel[207]: [0:00:13.171820160] [207]  WARN IPAManager ipa_manager.cpp:148 No IPA found in '/usr/lib/libcamera'
+[   13.253519] qemuarm64 systemd-logind[209]: New seat seat0.
+[   13.280409] qemuarm64 systemd[1]: Started User Login Management.
+[   13.300590] qemuarm64 systemd[1]: Reached target Multi-User System.
+[   13.352761] qemuarm64 systemd[1]: Starting Record Runlevel Change in UTMP...
+[   13.680783] qemuarm64 systemd[1]: systemd-update-utmp-runlevel.service: Deactivated successfully.
+[   13.684884] qemuarm64 systemd[1]: Finished Record Runlevel Change in UTMP.
+[   13.695497] qemuarm64 systemd[1]: Startup finished in 1.986s (kernel) + 11.704s (userspace) = 13.690s.
+[   14.527499] qemuarm64 isp-channel[207]: isp-channel: libcamera v0.4.0+dirty (2026-11-24T10:47:42UTC), 1 camera(s) found
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   camera 0: id 'VirtualSensor0', model 'ISP channel virtual sensor'
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel: using camera 'VirtualSensor0'
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel: camera exposes 2 control(s):
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   FaceDetectMode         [0..0]
+[   14.532997] qemuarm64 isp-channel[207]: isp-channel:   FrameDurationLimits    [33333..33333]
+[   14.535006] qemuarm64 isp-channel[207]: [0:00:14.534546848] [207] ERROR Virtual virtual.cpp:233 Requested stream role not supported: Raw
+[   14.535584] qemuarm64 isp-channel[207]: isp-channel: pipeline handler offers no RAW stream; RAW frames will come from the mosaic step
+[   14.537709] qemuarm64 isp-channel[207]: isp-channel: viewfinder formats offered by the camera:
+[   14.538507] qemuarm64 isp-channel[207]: isp-channel:   NV12 1920x1080 .. 1920x1080
+[   14.538507] qemuarm64 isp-channel[207]: isp-channel: configuration adjusted by the pipeline handler
+[   14.653879] qemuarm64 isp-channel[207]: isp-channel: viewfinder stream: 1920x1080-NV12, 4 buffers
+[   14.748751] qemuarm64 isp-channel[207]: isp-channel: 4 requests created, frame buffers backed by /dmabuf:frame-0 (DMABUF, mapped read-only)
+[   14.750199] qemuarm64 isp-channel[207]: isp-channel: ISP input: mosaic step, virtual sensor RGGB 10-bit, black level 64, illuminant gains R 1.90 B 1.60
+[   14.750199] qemuarm64 isp-channel[207]: isp-channel: software ISP: black level, gray-world AWB, bilinear demosaic, CCM, gamma; 4 thread(s)
+[   14.751131] qemuarm64 isp-channel[207]: isp-channel: software ISP controls: AeEnable, ExposureTime [100..33333 us], AnalogueGain [1..16], AwbEnable, AwbMode, ColourGains, Brightness [-1..1], Contrast [0..2]
+[   15.554430] qemuarm64 isp-channel[207]: isp-channel: encoder pipeline: appsrc name=src ! x264enc speed-preset=ultrafast tune=zerolatency bitrate=4000 key-int-max=60 ! splitmuxsink location=/var/lib/isp-channel/isp-%05d.mp4 max-size-time=60000000000 max-files=10
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control socket: /run/isp-channel/control.sock
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[   15.564780] qemuarm64 isp-channel[207]: isp-channel: streaming 1920x1080, target 30.00 fps (paced by the application)
+[   25.631424] qemuarm64 isp-channel[207]: isp-channel: stats frames=56 fps=4.49 avg_fps=4.49 sensor_ms=79.54 isp_ms=98.57 encode_ms=0.12 frame_ms=178.31 max_frame_ms=259.42 cpu_pct=291 rss_mib=146.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[   35.757851] qemuarm64 isp-channel[207]: isp-channel: stats frames=114 fps=5.73 avg_fps=5.05 sensor_ms=80.18 isp_ms=93.68 encode_ms=0.18 frame_ms=174.17 max_frame_ms=219.26 cpu_pct=357 rss_mib=146.6 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[   45.812800] qemuarm64 isp-channel[207]: isp-channel: stats frames=171 fps=5.67 avg_fps=5.24 sensor_ms=78.43 isp_ms=97.38 encode_ms=0.21 frame_ms=176.09 max_frame_ms=214.39 cpu_pct=354 rss_mib=143.8 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   55.865903] qemuarm64 isp-channel[207]: isp-channel: stats frames=230 fps=5.87 avg_fps=5.39 sensor_ms=76.35 isp_ms=92.92 encode_ms=0.23 frame_ms=169.57 max_frame_ms=218.93 cpu_pct=357 rss_mib=143.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   65.923636] qemuarm64 isp-channel[207]: isp-channel: stats frames=290 fps=5.97 avg_fps=5.50 sensor_ms=73.02 isp_ms=93.89 encode_ms=0.09 frame_ms=167.07 max_frame_ms=223.58 cpu_pct=354 rss_mib=143.9 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   75.928837] qemuarm64 isp-channel[207]: isp-channel: stats frames=350 fps=6.00 avg_fps=5.58 sensor_ms=77.91 isp_ms=87.67 encode_ms=0.38 frame_ms=166.04 max_frame_ms=204.96 cpu_pct=356 rss_mib=147.0 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   86.076460] qemuarm64 isp-channel[207]: isp-channel: stats frames=410 fps=5.91 avg_fps=5.62 sensor_ms=74.88 isp_ms=93.33 encode_ms=0.07 frame_ms=168.41 max_frame_ms=242.10 cpu_pct=354 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[   96.139789] qemuarm64 isp-channel[207]: isp-channel: stats frames=472 fps=6.16 avg_fps=5.69 sensor_ms=76.30 isp_ms=85.30 encode_ms=0.07 frame_ms=161.75 max_frame_ms=195.57 cpu_pct=359 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  106.294542] qemuarm64 isp-channel[207]: isp-channel: stats frames=533 fps=6.00 avg_fps=5.72 sensor_ms=74.74 isp_ms=91.22 encode_ms=0.21 frame_ms=166.23 max_frame_ms=210.89 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  116.324760] qemuarm64 isp-channel[207]: isp-channel: stats frames=596 fps=6.28 avg_fps=5.78 sensor_ms=74.08 isp_ms=84.54 encode_ms=0.07 frame_ms=158.75 max_frame_ms=194.74 cpu_pct=359 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.909 wb_b=1.607
+[  126.410769] qemuarm64 isp-channel[207]: isp-channel: stats frames=659 fps=6.25 avg_fps=5.82 sensor_ms=78.64 isp_ms=80.62 encode_ms=0.06 frame_ms=159.40 max_frame_ms=223.45 cpu_pct=360 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  136.522843] qemuarm64 isp-channel[207]: isp-channel: stats frames=720 fps=6.03 avg_fps=5.84 sensor_ms=70.82 isp_ms=94.20 encode_ms=0.09 frame_ms=165.18 max_frame_ms=210.10 cpu_pct=356 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  146.633247] qemuarm64 isp-channel[207]: isp-channel: stats frames=783 fps=6.23 avg_fps=5.87 sensor_ms=71.59 isp_ms=88.27 encode_ms=0.10 frame_ms=160.09 max_frame_ms=231.37 cpu_pct=353 rss_mib=144.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  156.716583] qemuarm64 isp-channel[207]: isp-channel: stats frames=848 fps=6.45 avg_fps=5.91 sensor_ms=70.22 isp_ms=84.11 encode_ms=0.29 frame_ms=154.68 max_frame_ms=216.79 cpu_pct=357 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  166.823211] qemuarm64 isp-channel[207]: isp-channel: stats frames=910 fps=6.13 avg_fps=5.92 sensor_ms=70.17 isp_ms=90.94 encode_ms=1.39 frame_ms=162.60 max_frame_ms=227.57 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  176.942610] qemuarm64 isp-channel[207]: isp-channel: stats frames=973 fps=6.23 avg_fps=5.94 sensor_ms=75.54 isp_ms=84.30 encode_ms=0.10 frame_ms=160.00 max_frame_ms=219.71 cpu_pct=356 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  187.103994] qemuarm64 isp-channel[207]: isp-channel: stats frames=1039 fps=6.50 avg_fps=5.97 sensor_ms=67.68 isp_ms=85.84 encode_ms=0.14 frame_ms=153.72 max_frame_ms=193.10 cpu_pct=359 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  197.171980] qemuarm64 isp-channel[207]: isp-channel: stats frames=1100 fps=6.06 avg_fps=5.98 sensor_ms=72.30 isp_ms=91.97 encode_ms=0.14 frame_ms=164.49 max_frame_ms=233.55 cpu_pct=354 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  207.283744] qemuarm64 isp-channel[207]: isp-channel: stats frames=1160 fps=5.93 avg_fps=5.98 sensor_ms=74.79 isp_ms=93.17 encode_ms=0.21 frame_ms=168.25 max_frame_ms=222.51 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  217.471368] qemuarm64 isp-channel[207]: isp-channel: stats frames=1206 fps=4.52 avg_fps=5.90 sensor_ms=95.99 isp_ms=114.46 encode_ms=8.97 frame_ms=219.50 max_frame_ms=283.79 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  219.063147] qemuarm64 kernel: hrtimer: interrupt took 11755360 ns
+[  219.021440] qemuarm64 kernel[203]: [  219.063147] hrtimer: interrupt took 11755360 ns
+[  227.493929] qemuarm64 isp-channel[207]: isp-channel: stats frames=1251 fps=4.49 avg_fps=5.84 sensor_ms=89.55 isp_ms=115.52 encode_ms=16.73 frame_ms=221.89 max_frame_ms=265.10 cpu_pct=351 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  237.544662] qemuarm64 isp-channel[207]: isp-channel: stats frames=1305 fps=5.37 avg_fps=5.82 sensor_ms=79.59 isp_ms=100.75 encode_ms=4.93 frame_ms=185.34 max_frame_ms=304.03 cpu_pct=355 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  247.620501] qemuarm64 isp-channel[207]: isp-channel: stats frames=1369 fps=6.36 avg_fps=5.84 sensor_ms=71.19 isp_ms=85.70 encode_ms=0.07 frame_ms=157.02 max_frame_ms=248.45 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  257.768549] qemuarm64 isp-channel[207]: isp-channel: stats frames=1433 fps=6.31 avg_fps=5.86 sensor_ms=69.59 isp_ms=87.73 encode_ms=0.78 frame_ms=158.15 max_frame_ms=207.95 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  267.852472] qemuarm64 isp-channel[207]: isp-channel: stats frames=1496 fps=6.24 avg_fps=5.87 sensor_ms=71.47 isp_ms=88.09 encode_ms=0.14 frame_ms=159.76 max_frame_ms=220.07 cpu_pct=353 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  277.995921] qemuarm64 isp-channel[207]: isp-channel: stats frames=1557 fps=6.01 avg_fps=5.88 sensor_ms=72.94 isp_ms=92.74 encode_ms=0.33 frame_ms=166.07 max_frame_ms=256.94 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  288.020785] qemuarm64 isp-channel[207]: isp-channel: stats frames=1618 fps=6.09 avg_fps=5.89 sensor_ms=78.12 isp_ms=85.81 encode_ms=0.06 frame_ms=164.05 max_frame_ms=246.08 cpu_pct=355 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  298.124845] qemuarm64 isp-channel[207]: isp-channel: stats frames=1681 fps=6.24 avg_fps=5.90 sensor_ms=71.49 isp_ms=88.15 encode_ms=0.24 frame_ms=159.93 max_frame_ms=305.34 cpu_pct=357 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  308.250011] qemuarm64 isp-channel[207]: isp-channel: stats frames=1742 fps=6.02 avg_fps=5.90 sensor_ms=69.12 isp_ms=96.48 encode_ms=0.15 frame_ms=165.81 max_frame_ms=276.11 cpu_pct=353 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  318.290712] qemuarm64 isp-channel[207]: isp-channel: stats frames=1800 fps=5.78 avg_fps=5.90 sensor_ms=76.26 isp_ms=96.18 encode_ms=0.07 frame_ms=172.59 max_frame_ms=295.24 cpu_pct=352 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  328.395774] qemuarm64 isp-channel[207]: isp-channel: stats frames=1860 fps=5.94 avg_fps=5.90 sensor_ms=73.75 isp_ms=94.22 encode_ms=0.06 frame_ms=168.11 max_frame_ms=324.79 cpu_pct=356 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  338.513852] qemuarm64 isp-channel[207]: isp-channel: stats frames=1918 fps=5.73 avg_fps=5.90 sensor_ms=78.77 isp_ms=95.12 encode_ms=0.07 frame_ms=174.02 max_frame_ms=271.99 cpu_pct=357 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  348.585843] qemuarm64 isp-channel[207]: isp-channel: stats frames=1963 fps=4.47 avg_fps=5.85 sensor_ms=93.39 isp_ms=115.01 encode_ms=14.62 frame_ms=223.11 max_frame_ms=294.61 cpu_pct=352 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  358.736758] qemuarm64 isp-channel[207]: isp-channel: stats frames=2005 fps=4.14 avg_fps=5.80 sensor_ms=99.48 isp_ms=123.15 encode_ms=18.58 frame_ms=241.30 max_frame_ms=310.32 cpu_pct=351 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  368.760589] qemuarm64 isp-channel[207]: isp-channel: stats frames=2048 fps=4.29 avg_fps=5.76 sensor_ms=101.41 isp_ms=119.62 encode_ms=10.54 frame_ms=231.65 max_frame_ms=315.49 cpu_pct=359 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  378.864879] qemuarm64 isp-channel[207]: isp-channel: stats frames=2098 fps=4.95 avg_fps=5.74 sensor_ms=90.85 isp_ms=103.30 encode_ms=7.38 frame_ms=201.61 max_frame_ms=322.66 cpu_pct=354 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  388.902706] qemuarm64 isp-channel[207]: isp-channel: stats frames=2156 fps=5.78 avg_fps=5.74 sensor_ms=79.40 isp_ms=91.11 encode_ms=1.68 frame_ms=172.42 max_frame_ms=275.70 cpu_pct=355 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  398.907412] qemuarm64 isp-channel[207]: isp-channel: stats frames=2217 fps=6.09 avg_fps=5.75 sensor_ms=74.89 isp_ms=88.50 encode_ms=0.08 frame_ms=163.55 max_frame_ms=239.35 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  408.937613] qemuarm64 isp-channel[207]: isp-channel: stats frames=2277 fps=5.98 avg_fps=5.75 sensor_ms=74.41 isp_ms=91.59 encode_ms=0.59 frame_ms=166.65 max_frame_ms=221.98 cpu_pct=356 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  418.999627] qemuarm64 isp-channel[207]: isp-channel: stats frames=2338 fps=6.06 avg_fps=5.76 sensor_ms=76.76 isp_ms=87.41 encode_ms=0.32 frame_ms=164.55 max_frame_ms=264.56 cpu_pct=358 rss_mib=150.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  429.032697] qemuarm64 isp-channel[207]: isp-channel: stats frames=2400 fps=6.18 avg_fps=5.77 sensor_ms=74.69 isp_ms=84.99 encode_ms=1.62 frame_ms=161.35 max_frame_ms=283.92 cpu_pct=357 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  439.198376] qemuarm64 isp-channel[207]: isp-channel: stats frames=2458 fps=5.70 avg_fps=5.77 sensor_ms=84.42 isp_ms=90.34 encode_ms=0.15 frame_ms=174.99 max_frame_ms=355.18 cpu_pct=357 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  449.277650] qemuarm64 isp-channel[207]: isp-channel: stats frames=2515 fps=5.66 avg_fps=5.77 sensor_ms=76.64 isp_ms=99.54 encode_ms=0.07 frame_ms=176.33 max_frame_ms=316.29 cpu_pct=354 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  459.342979] qemuarm64 isp-channel[207]: isp-channel: stats frames=2578 fps=6.26 avg_fps=5.78 sensor_ms=74.40 isp_ms=84.64 encode_ms=0.08 frame_ms=159.18 max_frame_ms=283.99 cpu_pct=359 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  469.429800] qemuarm64 isp-channel[207]: isp-channel: stats frames=2641 fps=6.25 avg_fps=5.79 sensor_ms=71.03 isp_ms=88.68 encode_ms=0.08 frame_ms=159.85 max_frame_ms=287.10 cpu_pct=358 rss_mib=147.1 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  479.523082] qemuarm64 isp-channel[207]: isp-channel: stats frames=2703 fps=6.14 avg_fps=5.80 sensor_ms=70.08 isp_ms=92.09 encode_ms=0.17 frame_ms=162.40 max_frame_ms=218.33 cpu_pct=356 rss_mib=144.4 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  489.574663] qemuarm64 isp-channel[207]: isp-channel: stats frames=2768 fps=6.47 avg_fps=5.81 sensor_ms=70.03 isp_ms=84.21 encode_ms=0.08 frame_ms=154.37 max_frame_ms=195.15 cpu_pct=359 rss_mib=144.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  499.639717] qemuarm64 isp-channel[207]: isp-channel: stats frames=2818 fps=4.97 avg_fps=5.79 sensor_ms=83.56 isp_ms=104.30 encode_ms=12.78 frame_ms=200.82 max_frame_ms=280.00 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  509.719969] qemuarm64 isp-channel[207]: isp-channel: stats frames=2867 fps=4.86 avg_fps=5.77 sensor_ms=90.85 isp_ms=102.94 encode_ms=11.30 frame_ms=205.16 max_frame_ms=279.14 cpu_pct=354 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  519.831013] qemuarm64 isp-channel[207]: isp-channel: stats frames=2931 fps=6.33 avg_fps=5.78 sensor_ms=74.57 isp_ms=81.97 encode_ms=1.02 frame_ms=157.64 max_frame_ms=209.81 cpu_pct=359 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  529.980019] qemuarm64 isp-channel[207]: isp-channel: stats frames=2985 fps=5.32 avg_fps=5.78 sensor_ms=84.06 isp_ms=97.93 encode_ms=5.54 frame_ms=187.60 max_frame_ms=251.99 cpu_pct=357 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  540.005186] qemuarm64 isp-channel[207]: isp-channel: stats frames=3029 fps=4.39 avg_fps=5.75 sensor_ms=96.50 isp_ms=110.96 encode_ms=19.29 frame_ms=226.87 max_frame_ms=296.94 cpu_pct=351 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  550.178097] qemuarm64 isp-channel[207]: isp-channel: stats frames=3075 fps=4.52 avg_fps=5.73 sensor_ms=88.05 isp_ms=117.60 encode_ms=14.65 frame_ms=220.38 max_frame_ms=283.81 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.605
+[  560.174518] qemuarm64 isp-channel[207]: isp-channel: stats frames=3121 fps=4.60 avg_fps=5.71 sensor_ms=87.39 isp_ms=113.91 encode_ms=15.38 frame_ms=216.79 max_frame_ms=284.35 cpu_pct=351 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  570.200100] qemuarm64 isp-channel[207]: isp-channel: stats frames=3184 fps=6.28 avg_fps=5.72 sensor_ms=70.07 isp_ms=88.24 encode_ms=0.30 frame_ms=158.68 max_frame_ms=205.96 cpu_pct=353 rss_mib=144.3 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  580.213315] qemuarm64 isp-channel[207]: isp-channel: stats frames=3248 fps=6.39 avg_fps=5.73 sensor_ms=70.67 isp_ms=85.20 encode_ms=0.13 frame_ms=156.06 max_frame_ms=193.81 cpu_pct=357 rss_mib=144.3 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  590.288463] qemuarm64 isp-channel[207]: isp-channel: stats frames=3314 fps=6.55 avg_fps=5.74 sensor_ms=66.68 isp_ms=85.09 encode_ms=0.11 frame_ms=151.95 max_frame_ms=208.06 cpu_pct=354 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.606
+[  600.426210] qemuarm64 isp-channel[207]: isp-channel: stats frames=3379 fps=6.41 avg_fps=5.75 sensor_ms=70.25 isp_ms=85.38 encode_ms=0.06 frame_ms=155.75 max_frame_ms=223.70 cpu_pct=357 rss_mib=147.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  610.516573] qemuarm64 isp-channel[207]: isp-channel: stats frames=3443 fps=6.35 avg_fps=5.76 sensor_ms=68.29 isp_ms=88.28 encode_ms=0.65 frame_ms=157.29 max_frame_ms=234.45 cpu_pct=357 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.908 wb_b=1.607
+[  620.560501] qemuarm64 isp-channel[207]: isp-channel: stats frames=3508 fps=6.47 avg_fps=5.78 sensor_ms=68.81 isp_ms=84.98 encode_ms=0.14 frame_ms=154.00 max_frame_ms=194.10 cpu_pct=355 rss_mib=150.2 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.909 wb_b=1.607
+[  622.933657] qemuarm64 isp-channel[207]: isp-channel: snapshot self-test: ISP output vs source picture PSNR 28.6 dB
+[  623.988662] qemuarm64 isp-channel[207]: isp-channel: snapshot saved: /var/lib/isp-channel/snapshot-20261124-113416-003520.png (1920x1080)
+[  630.608648] qemuarm64 isp-channel[207]: isp-channel: stats frames=3568 fps=5.97 avg_fps=5.78 sensor_ms=73.82 isp_ms=89.59 encode_ms=0.08 frame_ms=167.14 max_frame_ms=395.19 cpu_pct=353 rss_mib=150.7 dropped=0 failed=0 exposure_us=10232 gain=1.00 wb_r=1.907 wb_b=1.606
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  632.712466] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = tungsten   -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  632.932452] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  640.641108] qemuarm64 isp-channel[207]: isp-channel: stats frames=3626 fps=5.78 avg_fps=5.78 sensor_ms=79.17 isp_ms=92.86 encode_ms=0.43 frame_ms=172.52 max_frame_ms=238.54 cpu_pct=355 rss_mib=150.7 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.200 wb_b=2.600
+[  643.240584] qemuarm64 systemd[1]: isp-channel.service: Sent signal SIGUSR1 to main process 207 (isp-channel) on client request.
+[  643.750493] qemuarm64 isp-channel[207]: isp-channel: snapshot self-test: ISP output vs source picture PSNR 13.4 dB
+[  644.596796] qemuarm64 isp-channel[207]: isp-channel: snapshot saved: /var/lib/isp-channel/snapshot-20261124-113436-003641.png (1920x1080)
+[  650.741367] qemuarm64 isp-channel[207]: isp-channel: stats frames=3683 fps=5.64 avg_fps=5.78 sensor_ms=75.54 isp_ms=96.84 encode_ms=0.08 frame_ms=176.84 max_frame_ms=456.26 cpu_pct=350 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.200 wb_b=2.600
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.15       -> software ISP (not offered by the camera)
+[  653.462796] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AeEnable      = on         -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control ExposureTime  = 10000 us   -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AnalogueGain  = 1.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AwbEnable     = on         -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control AwbMode       = auto       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control Brightness    = 0.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 isp-channel[207]: isp-channel: control Contrast      = 1.00       -> software ISP (not offered by the camera)
+[  653.688710] qemuarm64 systemd-journald[109]: Forwarding to syslog missed 5 messages.
+[  660.865289] qemuarm64 isp-channel[207]: isp-channel: stats frames=3744 fps=6.03 avg_fps=5.78 sensor_ms=75.35 isp_ms=90.14 encode_ms=0.08 frame_ms=165.63 max_frame_ms=225.07 cpu_pct=354 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.903 wb_b=1.604
+[  670.971188] qemuarm64 isp-channel[207]: isp-channel: stats frames=3806 fps=6.14 avg_fps=5.79 sensor_ms=72.14 isp_ms=90.46 encode_ms=0.07 frame_ms=162.73 max_frame_ms=204.07 cpu_pct=357 rss_mib=150.8 dropped=0 failed=0 exposure_us=10730 gain=1.00 wb_r=1.903 wb_b=1.604
+[  674.146842] qemuarm64 systemd[1]: Stopping Camera ISP channel (libcamera, software ISP, H.264)...
+[  674.227223] qemuarm64 isp-channel[207]: isp-channel: stopping
+[  674.443621] qemuarm64 isp-channel[207]: isp-channel: summary frames=3826 seconds=661.3 avg_fps=5.79 worst_frame_ms=456.26 cpu_pct=354 rss_start_mib=8.2 rss_end_mib=119.1 rss_peak_mib=150.8 dropped=0 failed=0
+[  675.289804] qemuarm64 systemd[1]: isp-channel.service: Deactivated successfully.
+[  675.298176] qemuarm64 systemd[1]: Stopped Camera ISP channel (libcamera, software ISP, H.264).
+[  675.298819] qemuarm64 systemd[1]: isp-channel.service: Consumed 39min 3.948s CPU time, 147.4M memory peak, 0B memory swap peak.

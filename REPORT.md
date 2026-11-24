@@ -258,10 +258,93 @@ of Bayer sampling, not a bug; the zone plate now stops at half Nyquist.
 
 ## 7. Measurements
 
-<!-- MEASUREMENTS:BEGIN -->
-*Pending: filled in from `docs/evidence/qemu/measurements.md` once the QEMU
-validation run has completed.*
-<!-- MEASUREMENTS:END -->
+### 7.1 Target: QEMU `qemuarm64`, 10-minute soak
+
+Full output: [docs/evidence/qemu/measurements.md](docs/evidence/qemu/measurements.md).
+Raw logs: `boot.log` (serial console), `journal-boot.log`, `journal-isp-channel.log`.
+Guest: `-machine virt -cpu cortex-a57 -smp 4 -m 1024`, TCG on a 4-CPU x86-64 host.
+
+| Measurement | Result |
+| --- | --- |
+| Boot to login prompt | 22 s wall clock; systemd reports 1.99 s kernel + 11.70 s userspace |
+| Streaming time, frames | 661 s, 3826 frames |
+| **FPS, Viewfinder stream** (libcamera NV12 1920x1080) | 5.79 average |
+| **FPS, RAW stream** (mosaic step, RGGB 10-bit 1920x1080) | 5.79, one RAW frame per Viewfinder frame |
+| **FPS, encoded stream** (H.264 1920x1080) | 5.79, every frame encoded |
+| FPS per 10 s interval | min 4.14, mean 5.81, max 6.55 |
+| Dropped frames | **0** |
+| Failed or cancelled requests | **0** |
+| Per-frame time: virtual sensor (mosaic) | 77.2 ms |
+| Per-frame time: software ISP (statistics + 6 stages) | 93.8 ms |
+| Per-frame time: encoder hand-off | 2.7 ms |
+| Per-frame time: total | 174.0 ms average, 456.3 ms worst |
+| CPU, `isp-channel` process | 356 % of 400 % |
+| Memory, RSS after warm-up | 143.8 to 150.8 MiB, no trend |
+| ISP round trip (snapshot self-test) | 28.6 dB PSNR against the source picture |
+| Recording ring | 10 segments on disk, older ones rotated out |
+
+Reading the numbers:
+
+- **Stable, not fast.** Target 30 fps, achieved about 6. The frame loop is CPU
+  bound under emulation: all four guest cores are busy (356 %), shared between
+  the ISP threads and x264. The frame clock stretched; nothing was dropped.
+- **No memory growth.** RSS moves inside a 7 MiB band for 11 minutes with no
+  upward trend; the table in `measurements.md` has it at 50 s steps.
+- **FPS dips to about 4.5** line up with host scheduling stalls, not with the
+  application: the guest kernel logged `hrtimer: interrupt took 11 ms` in the
+  same window. The build machine is itself a shared VM.
+- The virtual sensor costs nearly as much as the ISP. It does comparable
+  per-pixel work (colour conversion, a table lookup, a dot product) and it does
+  not exist on real hardware.
+
+### 7.2 Multithreading gain (bonus B8)
+
+`isp-bench`, 1920x1080, service stopped so the benchmark has the CPUs to itself.
+
+| Threads | QEMU guest: ISP ms | Speed-up | x86-64 host: ISP ms | Speed-up |
+| --- | --- | --- | --- | --- |
+| 1 | 165.5 | 1.00x | 16.8 | 1.00x |
+| 2 | 86.8 | 1.91x | 10.6 | 1.59x |
+| 4 | 44.9 | **3.69x** | 6.7 | **2.50x** |
+
+The guest scales almost linearly because each guest CPU is a host thread and
+the workload is integer arithmetic over independent row bands. The host
+figure is lower because its 4 CPUs are 2 cores with hyper-threading and the
+single-thread run is already limited by memory bandwidth. Output is
+bit-identical for every thread count (`testThreadInvariance`).
+
+In the running service the ISP takes 94 ms, not 45 ms, because x264 competes
+for the same four cores.
+
+### 7.3 x86-64 build host, for reference only
+
+The same application built for the x86-64 build machine (4 CPUs, Xeon
+2.1 GHz), running against the same virtual camera for 10 minutes. This shows
+what the frame loop does when the CPU is not emulated. It is not an ARM
+measurement.
+
+| Measurement | Result |
+| --- | --- |
+| Frames | 17 996 in 600.3 s |
+| FPS | 29.98 average; 29.77 to 30.00 per 30 s interval |
+| Dropped / failed | 0 / 0 |
+| Per frame | virtual sensor 4.1 ms, ISP 6.7 ms, total 10.8 ms, worst 76 ms |
+| CPU | 127 % of 400 % |
+| Memory (RSS) | 168.7 to 169.1 MiB over the whole run |
+
+Log: [docs/evidence/native/soak-x86_64.log](docs/evidence/native/soak-x86_64.log).
+The build machine has no `/dev/udmabuf`, so for this one run libcamera's buffer
+allocator was patched locally to hand out plain memfds; the CI run on GitHub
+and the QEMU image use real DMABUFs. The whole application was also run under
+AddressSanitizer and LeakSanitizer on this machine with no findings.
+
+### 7.4 Continuous integration
+
+Every push runs, on a GitHub-hosted runner: the no-V4L2 grep, the unit tests
+under AddressSanitizer and UndefinedBehaviorSanitizer, and the full
+application against libcamera 0.4.0 (with the layer's patches) using the
+runner's real `/dev/udmabuf`. The end-to-end job checks frame counts, both
+snapshot triggers, a run-time control change and the round-trip PSNR.
 
 ## 8. QEMU timings do not represent a real board
 
