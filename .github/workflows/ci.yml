@@ -1,5 +1,10 @@
 name: CI
 
+# Fast checks on every push: the no-V4L2 constraint, the ISP unit tests under
+# sanitizers, and a full end-to-end run of the application against a real
+# libcamera with the virtual pipeline handler. The Yocto image build lives in
+# yocto.yml because it takes hours on a hosted runner.
+
 on:
   push:
     branches: [main]
@@ -12,6 +17,9 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  LIBCAMERA_VERSION: v0.4.0   # same version the Yocto image builds
+
 jobs:
   constraint:
     name: No V4L2 in application code
@@ -20,3 +28,87 @@ jobs:
       - uses: actions/checkout@v4
       - name: Grep application sources for V4L2 usage
         run: scripts/check-no-v4l2.sh
+      - name: Lint shell scripts
+        run: shellcheck run-qemu.sh scripts/*.sh
+
+  unit:
+    name: ISP unit tests (ASan + UBSan)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install build tools
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends cmake ninja-build g++
+      - name: Build the ISP core with sanitizers
+        run: |
+          cmake -S app -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DISP_BUILD_APP=OFF \
+                -DCMAKE_CXX_FLAGS="-Werror -fsanitize=address,undefined -fno-sanitize-recover=all"
+          cmake --build build
+      - name: Run unit tests
+        run: ctest --test-dir build --output-on-failure
+      - name: Thread-scaling benchmark (informational)
+        run: |
+          cmake -S app -B build-release -G Ninja -DISP_BUILD_APP=OFF
+          cmake --build build-release --target isp-bench
+          build-release/isp-bench 1920 1080 20 | tee -a "$GITHUB_STEP_SUMMARY"
+
+  integration:
+    name: End-to-end run with libcamera (virtual camera)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            cmake ninja-build meson g++ pkg-config git ffmpeg \
+            libyaml-dev python3-yaml python3-ply python3-jinja2 libgnutls28-dev \
+            libudev-dev libevent-dev libyuv-dev libjpeg-dev libpng-dev \
+            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
+            gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly
+
+      - name: Restore libcamera build
+        id: libcamera-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/libcamera-install
+          key: libcamera-${{ env.LIBCAMERA_VERSION }}-${{ hashFiles('meta-isp-assignment/recipes-multimedia/libcamera/**', '.github/workflows/ci.yml') }}
+
+      - name: Build libcamera with the layer's patches
+        if: steps.libcamera-cache.outputs.cache-hit != 'true'
+        run: |
+          # Ubuntu's libyuv-dev has no pkg-config file; the Yocto layer solves
+          # the same problem in its libyuv recipe.
+          mkdir -p ~/libcamera-install/lib/pkgconfig
+          printf '%s\n' 'Name: libyuv' 'Description: libyuv' 'Version: 0' \
+            'Requires: libjpeg' 'Libs: -lyuv' > ~/libcamera-install/lib/pkgconfig/libyuv.pc
+          git clone --depth 1 --branch "$LIBCAMERA_VERSION" \
+            https://git.libcamera.org/libcamera/libcamera.git
+          cd libcamera
+          git apply --verbose ../meta-isp-assignment/recipes-multimedia/libcamera/files/*.patch
+          PKG_CONFIG_PATH=~/libcamera-install/lib/pkgconfig meson setup build \
+            --prefix ~/libcamera-install --libdir lib --buildtype release \
+            -Dpipelines=virtual -Dipas= -Dv4l2=false -Dcam=disabled -Dqcam=disabled \
+            -Dgstreamer=disabled -Dpycamera=disabled -Dlc-compliance=disabled \
+            -Dtest=false -Ddocumentation=disabled
+          ninja -C build install
+
+      - name: Build isp-channel
+        run: |
+          PKG_CONFIG_PATH=~/libcamera-install/lib/pkgconfig \
+            cmake -S app -B build -G Ninja -DCMAKE_CXX_FLAGS=-Werror
+          cmake --build build
+          ctest --test-dir build --output-on-failure
+
+      - name: Run the channel end to end
+        run: |
+          # libcamera's virtual pipeline handler allocates DMABUFs from udmabuf.
+          sudo chmod a+rw /dev/udmabuf
+          ARTIFACT_DIR=artifacts scripts/native-smoke-test.sh build ~/libcamera-install 30
+
+      - name: Upload recording, snapshots and log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-run
+          path: artifacts/
+          retention-days: 14
