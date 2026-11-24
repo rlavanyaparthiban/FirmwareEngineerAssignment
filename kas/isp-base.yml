@@ -1,0 +1,31 @@
+# Common kas configuration: pinned layers, distro and image.
+# Use through kas/isp-qemuarm64.yml or kas/isp-raspberrypi4-64.yml.
+header:
+  version: 14
+
+distro: isp
+target: isp-image
+
+repos:
+  # This repository provides meta-isp-assignment.
+  isp:
+    layers:
+      meta-isp-assignment:
+
+  poky:
+    url: https://git.yoctoproject.org/poky
+    # Tag yocto-5.0.21 (scarthgap LTS)
+    commit: 4fb7016a07507683359ebd620f1951fd5ea44bfa
+    branch: scarthgap
+    layers:
+      meta:
+      meta-poky:
+
+  meta-openembedded:
+    url: https://github.com/openembedded/meta-openembedded.git
+    commit: 96c2c78e13ff1b954715ff3c6d26bddd50a02509
+    branch: scarthgap
+    layers:
+      meta-oe:
+      meta-python:
+      meta-multimedia:

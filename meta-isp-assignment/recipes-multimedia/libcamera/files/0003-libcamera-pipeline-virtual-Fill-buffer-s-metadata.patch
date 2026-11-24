@@ -1,0 +1,84 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <pobrn@protonmail.com>
+Date: Mon, 3 Feb 2025 10:43:31 +0000
+Subject: [PATCH] libcamera: pipeline: virtual: Fill buffer's metadata
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Fill the `FrameMetadata` object of the `FrameBuffer`s because it
+should not be left uninitialized as users expect to be able to
+access it and find reasonable data there.
+
+Bug: https://bugs.libcamera.org/show_bug.cgi?id=245
+Signed-off-by: Barnabás Pőcze <pobrn@protonmail.com>
+Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Upstream-Status: Backport [https://git.libcamera.org/libcamera/libcamera.git/commit/?id=98cf9eb533f603dca92338242d4cb5a57fdaf22d]
+---
+ src/libcamera/pipeline/virtual/virtual.cpp | 18 +++++++++++++++++-
+ src/libcamera/pipeline/virtual/virtual.h   |  1 +
+ 2 files changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/src/libcamera/pipeline/virtual/virtual.cpp b/src/libcamera/pipeline/virtual/virtual.cpp
+index 57aed762..29a88142 100644
+--- a/src/libcamera/pipeline/virtual/virtual.cpp
++++ b/src/libcamera/pipeline/virtual/virtual.cpp
+@@ -287,6 +287,11 @@ int PipelineHandlerVirtual::exportFrameBuffers([[maybe_unused]] Camera *camera,
+ int PipelineHandlerVirtual::start([[maybe_unused]] Camera *camera,
+ 				  [[maybe_unused]] const ControlList *controls)
+ {
++	VirtualCameraData *data = cameraData(camera);
++
++	for (auto &s : data->streamConfigs_)
++		s.seq = 0;
++
+ 	return 0;
+ }
+ 
+@@ -298,13 +303,24 @@ int PipelineHandlerVirtual::queueRequestDevice([[maybe_unused]] Camera *camera,
+ 					       Request *request)
+ {
+ 	VirtualCameraData *data = cameraData(camera);
++	const auto timestamp = currentTimestamp();
+ 
+ 	for (auto const &[stream, buffer] : request->buffers()) {
+ 		bool found = false;
+ 		/* map buffer and fill test patterns */
+ 		for (auto &streamConfig : data->streamConfigs_) {
+ 			if (stream == &streamConfig.stream) {
++				FrameMetadata &fmd = buffer->_d()->metadata();
++
++				fmd.status = FrameMetadata::Status::FrameSuccess;
++				fmd.sequence = streamConfig.seq++;
++				fmd.timestamp = timestamp;
++
++				for (const auto [i, p] : utils::enumerate(buffer->planes()))
++					fmd.planes()[i].bytesused = p.length;
++
+ 				found = true;
++
+ 				if (streamConfig.frameGenerator->generateFrame(
+ 					    stream->configuration().size, buffer))
+ 					buffer->_d()->cancel();
+@@ -316,7 +332,7 @@ int PipelineHandlerVirtual::queueRequestDevice([[maybe_unused]] Camera *camera,
+ 		ASSERT(found);
+ 	}
+ 
+-	request->metadata().set(controls::SensorTimestamp, currentTimestamp());
++	request->metadata().set(controls::SensorTimestamp, timestamp);
+ 	completeRequest(request);
+ 
+ 	return 0;
+diff --git a/src/libcamera/pipeline/virtual/virtual.h b/src/libcamera/pipeline/virtual/virtual.h
+index 92ad7d4a..683cb82b 100644
+--- a/src/libcamera/pipeline/virtual/virtual.h
++++ b/src/libcamera/pipeline/virtual/virtual.h
+@@ -37,6 +37,7 @@ public:
+ 	struct StreamConfig {
+ 		Stream stream;
+ 		std::unique_ptr<FrameGenerator> frameGenerator;
++		unsigned int seq = 0;
+ 	};
+ 	/* The config file is parsed to the Configuration struct */
+ 	struct Configuration {

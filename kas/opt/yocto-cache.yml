@@ -1,0 +1,11 @@
+# Optional overlay: reuse the Yocto Project's public sstate cache to shorten a
+# cold build. It changes where prebuilt artefacts are fetched from, never what
+# is built.
+#   kas build kas/isp-qemuarm64.yml:kas/opt/yocto-cache.yml
+header:
+  version: 14
+
+local_conf_header:
+  yocto-cache: |
+    BB_HASHSERVE_UPSTREAM = "wss://hashserv.yoctoproject.org/ws"
+    SSTATE_MIRRORS ?= "file://.* https://cdn.jsdelivr.net/yocto/sstate/all/PATH;downloadfilename=PATH"
