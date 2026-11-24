@@ -40,7 +40,8 @@ command -v qemu-system-aarch64 > /dev/null ||
 # -m 1024: the channel peaks near 200 MiB resident at 1080p (frame buffers,
 #     pre-scaled test frames inside libcamera, x264); 1 GiB leaves ample page
 #     cache for the recording and is the smallest Raspberry Pi 4 configuration.
-# virtio block/net/rng: paravirtual devices, the cheapest to emulate.
+# virtio block/net/rng: paravirtual devices, the cheapest to emulate. The
+#     empty romfile skips the PXE option ROM, which a minimal QEMU install lacks.
 # shellcheck disable=SC2086
 exec qemu-system-aarch64 \
     -machine virt -cpu cortex-a57 \
@@ -51,6 +52,6 @@ exec qemu-system-aarch64 \
     -drive "if=none,id=hd0,format=raw,file=$ROOTFS" \
     -device virtio-blk-pci,drive=hd0 \
     -netdev "user,id=net0,hostfwd=tcp:127.0.0.1:${SSH_PORT:-2222}-:22" \
-    -device virtio-net-pci,netdev=net0 \
+    -device virtio-net-pci,netdev=net0,romfile= \
     -device virtio-rng-pci \
     ${QEMU_EXTRA:-}

@@ -345,6 +345,22 @@ recordings out of the ext4 image. It writes everything to
 - `journal-boot.log`, `journal-isp-channel.log`: `journalctl` output
 - `measurements.md`: the measurement table
 - `snapshot-*.png`, `recording-first-segment.mp4`: what the channel produced
+- `demo.mp4`: a two-minute terminal recording of a session, made by
+  `scripts/record-demo.py`
+
+Result of the committed run (10-minute soak in QEMU):
+
+| | |
+| --- | --- |
+| Frames | 3826 in 661 s, 5.79 fps average at 1920x1080 |
+| Dropped / failed frames | 0 / 0 |
+| Memory (RSS) | 144 to 151 MiB, flat |
+| Per frame | virtual sensor 77 ms, ISP 94 ms, total 174 ms |
+| ISP thread scaling in the guest | 3.69x on 4 threads |
+| ISP round-trip PSNR | 28.6 dB |
+
+QEMU timings do not represent a real board; see
+[REPORT.md](REPORT.md#8-qemu-timings-do-not-represent-a-real-board).
 
 ## 8. The no-V4L2 constraint
 
@@ -378,9 +394,9 @@ allows. See [REPORT.md](REPORT.md#9-what-changes-on-a-real-raspberry-pi).
 
 ## 10. Known issues
 
-- **QEMU is slow.** The guest CPU is emulated, so the channel reaches a few
-  frames per second at 1080p, not 30. The frame clock stretches instead of
-  dropping frames. See the measurements for the real numbers.
+- **QEMU is slow.** The guest CPU is emulated, so the channel reaches about
+  6 fps at 1080p, not 30 (the same binary logic holds 30 fps natively on the
+  x86 build host). The frame clock stretches instead of dropping frames.
 - **Bilinear demosaic** softens edges and shows colour fringes on fine detail.
   The zone plate in the test chart makes that visible on purpose.
 - **Gray-world AWB** assumes the scene averages to grey. The test chart is

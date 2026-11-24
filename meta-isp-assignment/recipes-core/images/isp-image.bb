@@ -11,6 +11,7 @@ IMAGE_FEATURES += "ssh-server-dropbear allow-empty-password empty-root-password 
 IMAGE_INSTALL:append = " \
     libcamera \
     isp-channel \
+    systemd-analyze \
 "
 
 # Room for the rotating recording segments and snapshots.
