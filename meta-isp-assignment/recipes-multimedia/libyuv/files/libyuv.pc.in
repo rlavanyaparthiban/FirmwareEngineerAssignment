@@ -1,0 +1,10 @@
+prefix=@PREFIX@
+libdir=@LIBDIR@
+includedir=@INCLUDEDIR@
+
+Name: libyuv
+Description: YUV scaling and colour-space conversion library
+Version: @VERSION@
+Requires: libjpeg
+Libs: -L${libdir} -lyuv
+Cflags: -I${includedir}

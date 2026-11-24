@@ -1,0 +1,8 @@
+# Optional overlay for builders with little disk (CI runners): delete each
+# recipe's work directory once it has been packaged.
+header:
+  version: 14
+
+local_conf_header:
+  low-disk: |
+    INHERIT += "rm_work"
