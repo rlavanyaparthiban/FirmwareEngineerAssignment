@@ -47,16 +47,23 @@ jobs:
           sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0
 
       - name: Restore sstate cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: build/sstate-cache
-          key: sstate-qemuarm64-${{ hashFiles('kas/*.yml') }}-${{ github.sha }}
-          restore-keys: |
-            sstate-qemuarm64-${{ hashFiles('kas/*.yml') }}-
-            sstate-qemuarm64-
+          key: sstate-qemuarm64-${{ github.run_id }}
+          restore-keys: sstate-qemuarm64-
 
       - name: kas build
         run: kas build kas/isp-qemuarm64.yml:kas/opt/yocto-cache.yml:kas/opt/low-disk.yml
+
+      # Saved even when the build fails or times out, so that the next run
+      # resumes from what was already built.
+      - name: Save sstate cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: build/sstate-cache
+          key: sstate-qemuarm64-${{ github.run_id }}
 
       - name: Boot in QEMU and validate
         run: scripts/qemu-validate.py --soak "${{ inputs.soak || '600' }}" --out evidence
