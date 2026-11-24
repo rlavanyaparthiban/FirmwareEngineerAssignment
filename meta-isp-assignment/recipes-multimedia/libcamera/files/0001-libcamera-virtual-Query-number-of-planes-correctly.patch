@@ -1,0 +1,33 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <pobrn@protonmail.com>
+Date: Tue, 10 Dec 2024 18:56:03 +0100
+Subject: [PATCH] libcamera: virtual: Query number of planes correctly
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+`PixelFormatInfo::planes.size()` always returns 3 since `planes` is
+an array, but that is not the number of planes of the pixel format.
+Use the `numPlanes()` getter instead.
+
+Signed-off-by: Barnabás Pőcze <pobrn@protonmail.com>
+Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Upstream-Status: Backport [https://git.libcamera.org/libcamera/libcamera.git/commit/?id=fe33e727f278123e91ce5ebe75af08dec514cc5a]
+---
+ src/libcamera/pipeline/virtual/virtual.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/libcamera/pipeline/virtual/virtual.cpp b/src/libcamera/pipeline/virtual/virtual.cpp
+index cec8a85b..4e9bbc6e 100644
+--- a/src/libcamera/pipeline/virtual/virtual.cpp
++++ b/src/libcamera/pipeline/virtual/virtual.cpp
+@@ -279,7 +279,7 @@ int PipelineHandlerVirtual::exportFrameBuffers([[maybe_unused]] Camera *camera,
+ 	auto info = PixelFormatInfo::info(config.pixelFormat);
+ 
+ 	std::vector<unsigned int> planeSizes;
+-	for (size_t i = 0; i < info.planes.size(); ++i)
++	for (size_t i = 0; i < info.numPlanes(); ++i)
+ 		planeSizes.push_back(info.planeSize(config.size, i));
+ 
+ 	return dmaBufAllocator_.exportBuffers(config.bufferCount, planeSizes, buffers);

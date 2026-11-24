@@ -1,0 +1,32 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Barnab=C3=A1s=20P=C5=91cze?= <pobrn@protonmail.com>
+Date: Mon, 3 Feb 2025 10:43:34 +0000
+Subject: [PATCH] libcamera: pipeline: virtual: Set `FrameError` on error
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Do not cancel, simply set the buffer's status to `FrameError`
+to notify the user about the error condition.
+
+Signed-off-by: Barnabás Pőcze <pobrn@protonmail.com>
+Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Reviewed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Upstream-Status: Backport [https://git.libcamera.org/libcamera/libcamera.git/commit/?id=7fdfe648a4de022adb9d57e6c29b0dc161fcc444]
+---
+ src/libcamera/pipeline/virtual/virtual.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/libcamera/pipeline/virtual/virtual.cpp b/src/libcamera/pipeline/virtual/virtual.cpp
+index 29a88142..221565a9 100644
+--- a/src/libcamera/pipeline/virtual/virtual.cpp
++++ b/src/libcamera/pipeline/virtual/virtual.cpp
+@@ -323,7 +323,7 @@ int PipelineHandlerVirtual::queueRequestDevice([[maybe_unused]] Camera *camera,
+ 
+ 				if (streamConfig.frameGenerator->generateFrame(
+ 					    stream->configuration().size, buffer))
+-					buffer->_d()->cancel();
++					fmd.status = FrameMetadata::Status::FrameError;
+ 
+ 				completeBuffer(request, buffer);
+ 				break;

@@ -1,0 +1,8 @@
+# Track Q: bootable image for QEMU (aarch64).
+#   kas build kas/isp-qemuarm64.yml
+header:
+  version: 14
+  includes:
+    - kas/isp-base.yml
+
+machine: qemuarm64
